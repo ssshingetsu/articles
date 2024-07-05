@@ -1,0 +1,679 @@
+
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Meditations on Sakura no Uta, in which the existence of god and the impermanence of the soul are (not) demonstrated</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(0, 0, 0, 0.06); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="6fe6baeb-4528-4835-8d0d-8c6a5101789e" class="page sans"><header><h1 class="page-title"><strong>Meditations on Sakura no Uta, in which the existence of god and the impermanence of the soul are (not) demonstrated</strong></h1><p class="page-description"></p><table class="properties"><tbody><tr class="property-row property-row-created_time"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesCreatedAt"><path d="M8 15.126C11.8623 15.126 15.0615 11.9336 15.0615 8.06445C15.0615 4.20215 11.8623 1.00293 7.99316 1.00293C4.13086 1.00293 0.938477 4.20215 0.938477 8.06445C0.938477 11.9336 4.1377 15.126 8 15.126ZM8 13.7383C4.85547 13.7383 2.33301 11.209 2.33301 8.06445C2.33301 4.91992 4.84863 2.39746 7.99316 2.39746C11.1377 2.39746 13.6738 4.91992 13.6738 8.06445C13.6738 11.209 11.1445 13.7383 8 13.7383ZM4.54102 8.91211H7.99316C8.30078 8.91211 8.54004 8.67285 8.54004 8.37207V3.8877C8.54004 3.58691 8.30078 3.34766 7.99316 3.34766C7.69238 3.34766 7.45312 3.58691 7.45312 3.8877V7.83203H4.54102C4.2334 7.83203 4.00098 8.06445 4.00098 8.37207C4.00098 8.67285 4.2334 8.91211 4.54102 8.91211Z"></path></svg></span>Created</th><td><time>@March 9, 2024 10:50 AM</time></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesMultipleSelect"><path d="M1.91602 4.83789C2.44238 4.83789 2.87305 4.40723 2.87305 3.87402C2.87305 3.34766 2.44238 2.91699 1.91602 2.91699C1.38281 2.91699 0.952148 3.34766 0.952148 3.87402C0.952148 4.40723 1.38281 4.83789 1.91602 4.83789ZM5.1084 4.52344H14.3984C14.7607 4.52344 15.0479 4.23633 15.0479 3.87402C15.0479 3.51172 14.7607 3.22461 14.3984 3.22461H5.1084C4.74609 3.22461 4.45898 3.51172 4.45898 3.87402C4.45898 4.23633 4.74609 4.52344 5.1084 4.52344ZM1.91602 9.03516C2.44238 9.03516 2.87305 8.60449 2.87305 8.07129C2.87305 7.54492 2.44238 7.11426 1.91602 7.11426C1.38281 7.11426 0.952148 7.54492 0.952148 8.07129C0.952148 8.60449 1.38281 9.03516 1.91602 9.03516ZM5.1084 8.7207H14.3984C14.7607 8.7207 15.0479 8.43359 15.0479 8.07129C15.0479 7.70898 14.7607 7.42188 14.3984 7.42188H5.1084C4.74609 7.42188 4.45898 7.70898 4.45898 8.07129C4.45898 8.43359 4.74609 8.7207 5.1084 8.7207ZM1.91602 13.2324C2.44238 13.2324 2.87305 12.8018 2.87305 12.2686C2.87305 11.7422 2.44238 11.3115 1.91602 11.3115C1.38281 11.3115 0.952148 11.7422 0.952148 12.2686C0.952148 12.8018 1.38281 13.2324 1.91602 13.2324ZM5.1084 12.918H14.3984C14.7607 12.918 15.0479 12.6309 15.0479 12.2686C15.0479 11.9062 14.7607 11.6191 14.3984 11.6191H5.1084C4.74609 11.6191 4.45898 11.9062 4.45898 12.2686C4.45898 12.6309 4.74609 12.918 5.1084 12.918Z"></path></svg></span>Tags</th><td></td></tr></tbody></table></header><div class="page-body"><p id="bcb3d775-7dcd-4225-a9a9-9b8a3a98d73a" class="">
+</p><p id="c30cda3d-ffae-4f1e-910b-3569b2444ee5" class="">Note: This post is a word salad. I just wrote whatever came into my head. Major spoilers and all opinionated writing without scholarly rigor. I also used terms in ways that skew its actual meaning. Just leave a comment or something if there’s something I got wrong. I’d appreciate it (and probably reading recommendations on top of that if you have some).</p><p id="ca57ec61-467f-40af-ad0a-0efbe2b5ffb0" class="">What better way is there to start the beginning of a blog on Sakuuta by writing on what I felt after reading the ending? Upon finishing Sakuuta, I was left with a strong feeling of content, joy, and appreciation. The game enveloped me with a sense of comfort and delight for my own existence. Every second reading the latter half was pure bliss as each sentence, its words and rhythm, all amounted to an experience unlike any other. Throughout the days I spent dedicating hours into this marvelous work, I was bombarded with a series of emotions that continued making me feel engaged. It made me laugh. It made me smile. It made me angry. It made me cry. It made me get epic feels. It made me feel a whole spectrum of the human experience that eventually made me appreciate the little things in life by telling the story of a young man, Naoya, and the world revolving around him.</p><figure id="35d8d803-ff0a-428c-a2d3-b4907f467278" class="image"><a href="https://miro.medium.com/v2/resize:fit:1400/1*mJMNq-on5HnD0zHovB1ztQ.jpeg"><img style="width:700px" src="https://miro.medium.com/v2/resize:fit:1400/1*mJMNq-on5HnD0zHovB1ztQ.jpeg"/></a></figure><p id="1ed2b871-3153-4408-b9c3-2dc2af9d3c55" class="">Sakuuta starts with a funeral, marking the end of an esteemed artist who also happens to be Naoya’s dad. Under the sakura trees, the gentle petals caress the coffin of a man who stormed the world and the people he left behind. The spring’s snow covers the world’s surface, enrapturing onlookers with the beautiful scenery of a sharp pink and a soft redness. The trees’ tears flow to provide a farewell for a man who no longer roams this land. Yet, just like snow, the petals would eventually disappear as the renowned painter would eventually fade away from people’s heads. Many would forget his hegemony in the industry after the resurgence of another genius labeled a deity.</p><p id="e13c39b1-33a0-4e14-8265-7e123775ced0" class="">However, as time flies, the remnants of the past would still persist. While Kenitirou might have already passed away and the mural “defiled” by future, aspiring artists, he would still remain in the world. The Natume family, Naoya, Rin, Saki, Makoto, and those around him would continue to bear a part of him. But still, does this matter? Kenitirou’s no longer alive; his flesh no longer possesses the man who saved the Natume family, the man who dedicated his whole life for the woman he truly loves, the man who devoted his magnum opus to his late wife, the man who trained and entrusted his child with a mission to save a girl, and the man who sacrificed everything for those around him.</p><p id="b13b193d-b551-4aa1-b7b8-2b662e5b52d8" class="">Does all this matter in the end, even after he died? My answer to this is simple: I have no idea. I can’t imagine experiencing his life and still consider it a meaningful one. I can’t see myself having lived a fulfilling life when I spent all my time trying to save someone only for them to pass away before I fulfill my goal. However, Kenitirou accepted all this. He was able to embrace the cruelty reality presented to him and still find happiness. It doesn’t matter if everything is a product of fate or his own doing, Kenitirou still loved his life. There is no “what-if”, but only reality. He said, eloquently, “人生にifなど必要なく、だからこそ、俺はあの娘とあの場所であの季節に、必然的に出会ったのだ。【健一郎】No amount of regretting and wallowing would change the past. All we can do is make do with what we have and find the little meaningful moments. Kenitirou realized that he’s happy and proud of his own life. Blessed be his life, no matter how full of suffering it may be! Prepare the whiskey as we commemorate the unhappy life of a happy man!</p><figure id="aad402c7-97d9-4a0c-94fa-acfd131a82ea" class="image"><a href="https://miro.medium.com/v2/resize:fit:1400/1*_N_r5n4HI9uXKWyTcKj3Vg.jpeg"><img style="width:700px" src="https://miro.medium.com/v2/resize:fit:1400/1*_N_r5n4HI9uXKWyTcKj3Vg.jpeg"/></a></figure><p id="b104e33d-1e5e-4dc2-b154-d40754012242" class="">We know that even after Kenitirou passes away, the planet still revolves around the sun. Things will continue to go on and life advances as normal. We also know that this world is full of inconsistencies and unfairness. Kenitirou’s story isn’t an outlier as everyone is swayed around by the workings of the society we live in. It praises equality, yet the poor and “abnormal” suffer. It exalts freedom, yet many are trampled by hierarchies and oppression. It extols love, yet minorities are targeted for being different. It denounces murder, yet the hungry, the homeless and the jobless are murdered through inaction, or worse, systematic order. No matter where we are, we will always be trapped in a curse of injustice. Sakuuta acknowledges this, highlighting the immense gap between the talented and the ordinary, the unlucky situation the Natume family found themselves in, the political and economical factors behind Toritani Saki’s marriage, the sexuality Yuumi is born into, the disease Rina suffers, the fire that took Rin’s mother away from her daughter, the sudden death Kei faced, the unreasonable debt Kenitirou had to shoulder the burden of, the workplace hierarchical oppression Kirino was exposed to, etc. Our world is shitty. It sucks to be in it and we’ll always suffer. Even in art, Sakuuta’s main focus, the industry is plagued with schemes and a never-ending conquest for wealth, undermining creative freedom. An artwork is worth its monetary and capital value, not its artistic merit.</p><p id="d6fb28f7-8681-4757-8071-fca7f06ae34e" class="">Yet, despite this, Sakuuta still talks about how there still is hope behind all the gloom and doom enveloping us. It urges us to embrace a form of <em>amor fati</em>, a stoical love of this world’s fatalism, as we accept that many things are out of our control. We, as individuals, have no power to change the economical system. We have no reign over the sociopolitical structures of the world we live in. We have no authority to reverse the actions of our forefathers nor our own mistakes. Regardless, our attitude to this completely alters who we are and our happiness. It’s no use to dwell on the ghosts of the past. While they will always continue to haunt our lives and potentially misguide us from the path we want to take, none of this is in vain. Our experiences would always amount to a step forward, even if that requires us to stay still. In this situation, there’s no purpose in looking at others and comparing oneself. No matter what we do, we will never become a prodigy. Many aspiring artists fail despite their hard work; the world doesn’t reward the diligent, but it rewards the lucky, the fortunate, and the blessed. This is not saying that gifted people aren’t persistent in their efforts to improve. That’s far from the truth.</p><p id="797c9e73-9bbf-4684-9df5-e2ed6e6799f5" class="">But, just like how Kana and Naoya would never reach the same place as Rin, the discrepancy just grows larger through effort from the gifted. This is a concept not only found in art, but our economics. After all, those fortunate enough to be born to an affluent family would find it much easier to develop a fortune than someone born in the ghetto to a single parent. External factors significantly influence a child’s growth. For example, some poor households are forced to live in houses with lead paint in the US (source listed below; there was a journal article I read on this, but I can’t find it and can’t be arsed to actually spend a lot of time browsing so this should suffice). Considering lead poisoning’s significant impact on our brains, it’d be detrimental for the education of children affected, thus continuing the cycle of poverty. Obviously, it’s not this simple, but I’m just taking a small bite from this multi-layered rancid cake for convenience’s sake.</p><p id="27b00536-03a1-40bc-862a-ac74fea1bf28" class="">And it’s not just poverty that affects us. Race, gender, sexuality, class, neurodiversity, physical disabilities, and all that sum up as these categories place us in different camps. I’m not trying to say that these categories are what define us, but that they certainly have influenced us in some way. Furthermore, these categories might not even be correct as everyone’s experiences are different and a term to confine each of them within a cramped box would undermine the unique reality different people face. All I want to say is that shit’s rough if you don’t blend with the majority. Everyone’s struggling, but it’s even harder for those who aren’t the 勝ち組 as some would say.</p><figure id="fa679e5c-ea9a-4fcd-a6dd-e71f6fbda40a" class="image"><a href="https://miro.medium.com/v2/resize:fit:1400/1*SV2v9xlk_k-nzEmd_mbGrg.jpeg"><img style="width:700px" src="https://miro.medium.com/v2/resize:fit:1400/1*SV2v9xlk_k-nzEmd_mbGrg.jpeg"/></a></figure><p id="ff4f7ba0-416b-41b2-9e33-5ead7d8ea3fc" class="">And that’s where Zypressen, a monumental work and easily one of the best things mankind has ever penned, comes in. We have Yuumi, an unabashed homosexual, who has to deal with her “abnormal” sexuality with her passionate romance directed to her closest friend, Rina. Sakuuta concludes this chapter with a rejection, a broken heart. While Rina might not have accepted Yuumi as a lover, she still embraced her friend’s sexuality and identity. One of Sakuuta’s main influences, Oscar Wilde, was a homosexual whose works were berated for having gay vibes and he eventually was imprisoned for his forbidden love. He had to face discrimination and intolerance just because of his sexuality, and this shows in his essay <em>The Soul of Man under Socialism</em>. I don’t have a proper understanding of his philosophy, but oh well, might as well lay out my thoughts.</p><p id="807982a5-2ef5-49ee-a0a8-b5774a65f080" class="">He claims that “Art should never try to be popular.” as “Art is this intense form of Individualism that makes the public try to exercise it in an authority that is as immoral as it is ridiculous, and as corrupting as it is contemptible. It is not quite their fault.” It’s clear why he doesn’t like common consensus and critics at the time, considering how his novel, The Picture of Dorian Gray (which I admit that I have not read), was attacked for flaunting homosexual innuendos. It is, to him, the expression of Beauty, yet societal concepts of morality, morbidity, mental health, and normality all denounce his works because of the man’s homosexuality. He also argued that “In the case of the novel and the drama, arts in which the public do take an interest, the result of the exercise of popular authority has been absolutely ridiculous. No country produces such badly-written fiction, such tedious, common work in the novel form, such silly, vulgar plays as England.” When I first read this passage, I thought Wilde was being a pompous ass. This was before I knew of his homosexuality and social ridicule, and also the philosophical basis of his aesthetics. After reading Sakuuta and <em>The Decay of Lying</em>, I still think he’s a pompous ass, but his experience might have influenced his view of the public. The reviewers debased his works on the basis of morbidity and immorality. Freedom from such restricting, oppressive constraints would allow him to be who he truly is without minding the world. Sakuuta’s Zypressen, in this regard, presents a tale of acceptance regardless of the differences we all have. The characters disregard these differing traits and respect one another. The banter between Yuumi and Rina, Yuumi and Naoya, and Yuumi and her childhood friend is all natural, depicting queerness as a normality. There is no reason to hide it; Yuumi has all the right to be openly gay. While, ultimately, Yuumi is rejected and dejected, her identity is affirmed by those around her, where she lived a beautiful life of love; her lesbian passion acts as the melody of the artwork that is her life.</p><figure id="1982f56b-e3c8-41fe-98fd-93929e06bd5b" class="image"><a href="https://miro.medium.com/v2/resize:fit:1400/1*sXtar8BKZ2sk3vP_T43xxQ.jpeg"><img style="width:700px" src="https://miro.medium.com/v2/resize:fit:1400/1*sXtar8BKZ2sk3vP_T43xxQ.jpeg"/></a></figure><p id="dcd7c67a-9a12-43fe-9950-bfa8ea1b46d6" class="">However, all that is conjecture from my side. I merely guessed that Wilde’s affection for the same sex affected his view of art as a whole. Regardless, one thing remains clear. His artistic claim is a challenge to an age-old aesthetic concept originating from Aristotle by arguing that “life imitates art”, not vice versa.</p><p id="ab47cdcd-b598-4baf-805d-292beedcb146" class="">Oscar Wilde’s view of fine art from <em>The Decay of Lying</em> goes back to that anti-mimesis, and Sca-Di actually summarized it eloquently in the conversation with Rin after Kei’s death. There, the two of them discussed the essence of beauty. What defines beauty? Rin, following Wilde’s philosophy, believes in an Idea of Beauty. Wilde writes “The highest art rejects the burden of the human spirit, and gains more from a new medium or a fresh material than she does from any enthusiasm for art, or from any lofty passion, or from any great awakening of the human consciousness. She develops purely on her own lines. She is not symbolic of any age. It is the ages that are her symbols.” Rin embodies this Beauty, reigning the world as the disciple behind this absolute God. Her ability to create the 千年桜 out of nothing is a direct representation of Wilde’s thoughts. Out of nothing (lies), she was able to make a beautiful artwork where reality imitates her artwork.</p><figure id="3230b256-9806-488e-9b7d-9b328210393e" class="image"><a href="https://miro.medium.com/v2/resize:fit:1400/1*c1Kp65cGxNp5tyejGnanKg.jpeg"><img style="width:700px" src="https://miro.medium.com/v2/resize:fit:1400/1*c1Kp65cGxNp5tyejGnanKg.jpeg"/></a></figure><p id="4dd358e1-eb09-434d-9752-6aa090a1efd6" class="">Considering the context of this scene, Sakuuta purposefully uses the word “神” for beauty. Rin’s Beauty (God) is the opposite of Naoya’s beauty (god). In my opinion, our aesthetic sense is a product of values, or if we take ancient Greek terms, a product of our virtues. What we view as good, true, just, right, fair, etc. all culminate into what we consider beautiful, and with that, art. Obviously, what we consider as a virtue is a question that needs to be answered, with Rin arguing on an innate, objective sense of Beauty that doesn’t require a subject/person to assess it, while Naoya proposes a subjective, man-made beauty. The reason both ukiyo-e and impressionism are given so much attention is because they both, according to Sakuuta, are movements created by the people. This is the backbone of Naoya’s view; art evolves according to the will of the artist. Humanity made beauty, and considering the Japanese word 人間, and how our connection with others is vital within the creation of our values. Rin’s God completely ignores this community as Beauty is not contingent, but absolute. While the world is able to appreciate Rin’s art, they do not properly interact with Rin herself as her artwork is impersonal, based on an ideal separate from who she is. Rin is isolated and cursed to never be able to view the world as others do. She is alone with this view, and if we consider he to be the embodiment of Oscar Wilde’s philosophy, she too cannot view others as unique individuals. This is why she eventually gave her thanks to Makoto after seeing Naoya’s achievement with the stainless glass since it was her last moment as Misakura Rin. During her last conversation with Naoya, she remarked that “まるで春と修羅だね。そっか…本当は.....私だって、そうなんだけど.....”【稟】All Rin wanted was to be like any other person who fell in love, but she realized how it’s impossible to do so with her God. On human nature and identity, Wilde argues that</p><blockquote id="7fe7be71-45e5-466f-910b-92b99e842cc6" class="">“Where we differ from each other is purely in accidentals: in dress, manner, tone of voice, religious opinions, personal appearance, tricks of habit and the like. The more one analyses people, the more all reasons for analysis disappear. Sooner or later one comes to that dreadful universal thing called human nature.”</blockquote><p id="225397d3-23ed-4e22-8600-19ad68f50f9c" class="">Rin is now Beauty’s disciple and her subjective self is replaced with an absolute, objective God. She has transcended from a mere mortal, and is now alone. Shizuku now plays the opposite role; she has to use her heart to make Rin know subjectivity. Another way of viewing Sizuku’s position is actually the opposite. Ai told Naoya how Sizuku had her heart broken after Kei’s death and had to stay with Friedman. She couldn’t handle her emotions, the heart that made her a unique subject, and chose to go with living incarnations of objectivity: Friedman, a disciple of Money, and Rin, a disciple of Beauty.</p><p id="b75efb60-22c2-4895-a1fa-0c63df3cdebc" class="">Going back on the topic of beauty and god, our view of aesthetics and beauty, or on a larger scale, worldview and morality provides us the foundation in viewing the world. We only perceive the things we see, touch, hear, smell, and taste only through a specific, unique, and subjective manner; there are values, culture, history, politics, and art even in the most mundane thing as a rock or a leaf. Wilde argues claims that this is us imitating art, saying</p><blockquote id="af3789c9-27ff-4c02-a6a8-0cb91fef1d0f" class="">Things are because we see them, and what we see, and how we see it, depends on the Arts that have influenced us. To look at a thing is very different from seeing a thing. One does not see anything until one sees its beauty. Then, and then only, does it come into existence.</blockquote><p id="d71f7303-dbd4-482e-93cd-b6e9cc0ab93e" class="">Ancient Rhetoric talks of three facets of persuasion: ethos, logos, and pathos. Ethos refers to our credibility, or in a broader term, ethics (goodness), Logos to reason (truth), and pathos to emotion (beauty). Aristotle divided the sciences into three parts (theoretical, practical, and productive) for this reason. Christianity also discusses this as we are the <em>Imago Dei, </em>or the image of God (Gen. 1:26), and God embodies truth, beauty, and goodness (uhh many verses on this but some are Psa. 145:7, John 1:14, John 14:6, etc.). What differs here is how Rin’s Beauty resembles the Biblical God in its sheer authority while Naoya’s beauty is a mere idol that we have created. It is the “festival of atonements” and “sacred games” that we have invented to make our own gods. To face her mother’s death, she has to cling to a solid foundation, her Beauty, which encompasses both Goodness and Truth. Meanwhile, Naoya lives in a postmortem world without God or Beauty. He has created his own idol, a 弱い神 (weak god), one that’s reliant on humankind.</p><p id="ef27d980-a156-4ce4-847b-9ece810ed744" class="">Subahibi talks of how if we look back at our lives, we would see two pairs of footsteps, one being ours and the other god’s. During our hardest moments, we would only see one pair since god is carrying us. This is a common visualization of the Biblical God, but here, Sakuuta specifically mentions how the weak god is always with us. Precisely because of its powerlessness and subjectivity, it would always be there for us. The values we developed from our childhood and, more importantly, from our interaction with others will support us. And because our god is weak, we can learn to be more accommodating of those around us. We should never be trapped in our shell. The game urges us to learn to reach out and to rid ourselves of prejudices (Thomas, Olympia, wolf and mushroom imagery in Zypressen) because we need others, and we need to understand them. The god we created is simple and we are left with a sincere, rather naive command: “Live happily!” By understanding that we are just one 灯り, one 因果 in 因果交流. Through the 交流 we share with others, our lights would only shine brighter and illuminate our surroundings with a beautiful artwork. Our task is to live happily, and wouldn’t cooperation and understanding lead to a better environment to cultivate such happiness?</p><figure id="d85a4d33-9d58-4448-9147-00a0e9c15bf6" class="image"><a href="https://miro.medium.com/v2/resize:fit:1400/1*f_BaBGWw23oHd9630r-ZBQ.jpeg"><img style="width:700px" src="https://miro.medium.com/v2/resize:fit:1400/1*f_BaBGWw23oHd9630r-ZBQ.jpeg"/></a></figure><p id="11b1f1a7-5469-41f4-87b7-eb004c6eda63" class="">I think Wilde agrees with this, in a sense, as his aesthetics led him to adopt a socialism without despots, but a true individualism where one is free from the yoke of the powerful or the masses. He writes</p><blockquote id="6392e754-00d9-4c9e-8bbd-feb945589133" class="">And unselfishness is letting other people’s lives alone, not interfering with them. Selfishness always aims at creating around it an absolute uniformity of type. Unselfishness recognises infinite variety of type as a delightful thing, accepts it, acquiesces in it, enjoys it. It is not selfish to think for oneself. A man who does not think for himself does not think at all. It is grossly selfish to require of ones neighbour that he should think in the same way, and hold the same opinions.</blockquote><p id="5ffe9ac3-0fdc-458f-81cf-4ad8aeead531" class="">He acknowledged that man is “naturally social” and can’t isolate themselves. He despised capitalism for burdening us with the endless pursuit for the accumulation of wealth, distracting us from existing through proper critical reflection through the arts. His support for anarchism originated from his desire for people to simply be free, to be real people, to be subjects. His ideal, Jesus Christ, embodies an individualist freedom that separates themselves from hierarchies or social views that restrain us. Wilde described this Christian figure with the following quote.</p><blockquote id="011387e7-9b59-473d-bba2-3f1063ed2978" class="">What Jesus does say is that man reaches his perfection, not through what he has, not even through what he does, but entirely through what he is.</blockquote><p id="6500ec4e-8b1a-412a-9398-83ab665c4f73" class="">He highlighted how being Christlike is to be true to oneself, whatever that is. I honestly don’t know what this entails, but considering how he viewed mankind and aesthetics, he most likely believed that there is an essence within us, that is human nature, and also a quest for Beauty. However, what’s important here is how Jesus denied his family. This doesn’t mean that he undermined the bonds he had, but that his relationship transcends categories or legal restrictions. Marriage will no longer be a tradition; it is, in my opinion, a bastardization of a passionate union between the parties involved. Bringing a foreign factor to bind the two (or more) would be sacrilegious. Sakuuta also develops on this, prioritizing our bonds over mere legally binding chains. Naoya says to Ai the following regarding family: 何言ってるんだよ.....。俺たち、家族なんだろ？血もつながっていない。てんでバラバラな、何一つ成立していない。父親も母親も誰もいない.....それでも、ここは、俺が帰ってくるべき場所で.....【直哉】</p><figure id="a769db52-07dc-41c0-b149-6974682b6055" class="image"><a href="https://miro.medium.com/v2/resize:fit:1400/1*hNYjfaGhwwwM_hpdsR6OfA.jpeg"><img style="width:700px" src="https://miro.medium.com/v2/resize:fit:1400/1*hNYjfaGhwwwM_hpdsR6OfA.jpeg"/></a></figure><p id="03f3f221-1ebe-41bd-af4b-c40422249ee6" class="">My reading of Sakuuta betrays Wilde’s philosophy on art. He believes that</p><blockquote id="991ef939-b128-406d-ad6f-43a5dcc4f681" class="">The only beautiful things, as somebody once said, are the things that do not concern us. As long as a thing is useful or necessary to us, or affects us in any way, either for pain or for pleasure, or appeals strongly to our sympathies, or is a vital part of the environment in which we live, it is outside the proper sphere of art. To art’s subject-matter we should be more or less indifferent. We should, at any rate, have no preferences, no prejudices, no partisan feeling of any kind</blockquote><p id="fcad55ee-d85d-48c8-bdab-9316794e4c4f" class="">My interpretations always involve my moral political views on what is right. As evident from what I wrote above, I viewed Sakuuta as a micro analysis of society’s irrational system. Inequality plagues the world as billions have to suffer due to the greed that fuels the economic machine, leading people to starve left and right as the wealth disparity continues to widen. In my view, a beautiful artwork is one that recognizes the facts of this horrid world and the faults of the human experience these days, acting as a “mirror” that “resembles” our reality. This is why I have a massive fondness for titles like Dead End Aegis and Hajimete no Kanojo for their goal is to portray the facts.</p><p id="0a6130ae-6f20-4973-9216-01413a8b686e" class="">To this, Wilde writes</p><blockquote id="46ea65b6-7ca8-4d0b-9cb5-0e5685af4c58" class="">The work of art is to dominate the spectator: the spectator is not to dominate the work of art. The spectator is to be receptive.</blockquote><p id="1042ead1-c20f-41ad-8faf-84095c67daab" class="">I believe that the goal of an artwork is not to “dominate the spectator.” However, I agree that “the spectator is not to dominate the work of art.” The spectator should not be “receptive”; they should properly engage with the title and reflect real experiences, either theirs or others, with the context from the story. Hajimete no Kanojo embodies this perfectly. It presents a personal story of a prostitute through her lens as readers learn to view the world in her perspective. It’s the type of communication I find the most valuable in art where it presents a story with the facts laced throughout its entirety and contextualizes the characters’ experiences with ours so that we can reflect, contemplate, and interact with the things we consume. An artwork comes to life when we engage with it and apply it within our daily lives.</p><blockquote id="feec3a22-1090-4c78-b609-c225ffc137ce" class="">もし、君が、作品を目の前にして”重圧”だと思ったり、”高尚”そうだと思ったら、その芸術は死んでいる……。 もし、君が、その作品を目の前にして、作品から息吹を感じたとしたら、その作品を生き返らせたのは、他ならぬ君だ。 【直哉】</blockquote><p id="a0ffd659-45b6-42aa-9806-5c07dc3f9021" class="">But all this hasn’t answered the bigger question posed before: can we even resist this cruel, cold world’s innate irrationality? Wouldn’t focusing on art act as a mere way of escaping from reality? Do we even have the ability to do anything?</p><p id="3727b491-ddee-49c5-8ee5-7e3d2bdd12d6" class="">Despite all this, this doesn’t mean that we should be doomers all the time. For example, no matter how much we might have suffered in the past, we should learn to embrace, even if that may be difficult, and continue moving onward. Mizuna had to accept her body despite the “defilement” she received. Rin had to accept her mother’s death because 大切だから隠すんだ……。 大切でなければ捨ててしまえば良いのだから……。【直哉】Makoto and Kei had to accept their peculiar circumstances. Everyone has something that would’ve been better without, but there’s nothing that could’ve been done. We can do nothing, but that’s fine. What we are able to accomplish is to move on in life, even if 前に進む力が、大きく後退させる事だってある。 進化が迷走を生む事だってある。 だけど……迷走だって、前に進むための糧になる事だってある。 【直哉】Our only option is to venture forward and live happily.</p><figure id="dea6aa31-28dc-4979-9654-f55c4c144a30" class="image"><a href="https://miro.medium.com/v2/resize:fit:1400/0*GJBpoNFTkqrVrfMK.jpg"><img style="width:700px" src="https://miro.medium.com/v2/resize:fit:1400/0*GJBpoNFTkqrVrfMK.jpg"/></a></figure><p id="9d164259-b3dc-42fe-99d1-05e417485b56" class="">So uhh, I can’t find a good transition with this so yeah, gonna just jump into how I viewed art before and after Sakuuta.</p><p id="be4e0c82-301e-4d9d-a676-b7d9d39d07b3" class="">After reading Subahibi, I viewed art as a way of life and a method to bring meaning in life. It provides us the opportunity to express ourselves and gain the context of our existence. In the dance scene at the end of Invention, as everyone’s jamming, there is 旋律 (rhythm or melody), an accent that makes such a scene of insanity serene. Emily Dickinson’s poem also differentiates our difference with God with sound and syllable. While the difference between the two might be trivial at first glance, sound is just a result from hearing, a mere auditory experience, while syllables act as parts of a word, with words acting as parts of a sentence, and sentences as parts of a whole story. Our ability to make art, products of our sense of beauty and weak god, gains meaning only when another person engages with it. To create an artwork with no audience would be a nonsensical syllable. Even then, our interactions with others might amount to mere gibberish, bearing no fundamental meaning, but even so we should attempt to interact with others no matter how difficult it may be. We are unique because of our artistic capabilities, and on top of that, our ability to bond with others through art whether it be music, sculptures, paintings, movies, or eroge. In Subahibi’s case, art becomes a prayer for its readers to live happily and respect others regardless of their quirks. It’s an appeal to melody and harmony among people just like syllables that blend together in music to invoke a sense of meaning. More importantly, it’s a creation, an invention of oneself through the collection of notes, strokes, or words. It is a crucial aspect of what makes us human, unique, and happy: art should blend in our daily lives just like Eric Satie’s music. Finally, our lives should be the most magnificent artwork ever conceived, one that would make people marvel at it hundreds of years after our passing, but more crucial than that, one we could be proud of accomplishing in our finite lives</p><p id="7d602e68-a4b0-4fcb-9092-29ebe7d14e93" class="">Here, I thought that the BGMs 小さな旋律, 小さな言葉, and 言葉と旋律 bear relevance in their names. At most, we would live a hundred years if we’re lucky, a minuscule amount compared to the universe, earth, civilizations, cities, etc. We are small, powerless beings in front of this fundamentally meaningless world, but we still can oppose this world’s cruel reality, just like how Tomosane fought against death to save Hasaki and eventually survive the fall. In Sakuuta, we too witnessed the struggles that burden each character along with their attempt to resist such as Kenitirou and Naoya against the Nakamura family, Kana against the blinding grandeur of talent, Naoya against his barely functioning body, and many more. Our acts of rebellion don’t have to be such magnificent deeds. Even the trivial action of swinging on a swing is a declaration of independence. We are powerless in the air, but we still can continue kicking and pushing ourselves to continue swinging a beautiful arc. We might amount to nothing, but we should become a 小さな旋律 that would influence ourselves and those around us and 小さな言葉 to leave a message: “I lived a great life, and I would be willing to repeat it an infinite number of times! I was happy and will always be happy. Live happily!”</p><figure id="78aa9eb6-f798-42db-813d-a81f4aa115a8" class="image"><a href="https://miro.medium.com/v2/resize:fit:1400/1*AxpzNT1S63riCeAVPUWxAQ.png"><img style="width:700px" src="https://miro.medium.com/v2/resize:fit:1400/1*AxpzNT1S63riCeAVPUWxAQ.png"/></a></figure><p id="20de7970-3289-4abb-a558-0e71b82b7f39" class="">My previous view on art places too much on the creator. While I edited it a bit to add Sakuuta, I prioritized creation over criticism and interaction from the audience. It dwells on the idea that our lives should be an artwork others would want to engage with, but doesn’t highlight the fact that we should properly involve ourselves with other’s artworks and worlds. I view stories as a personal conversation with an author on their thoughts and ideas. This is where my irrational obsession to read an author’s catalogue in release order comes from: I desire a talk that gradually expands and grows in scale as we spend more time together, further understanding what the other party wants to convey. This, however, might lead to idolization, which I unfortunately stumble into many times. I get too obsessed with the actual authors themselves that I fail to properly assess works that might interest me but I ignore due to an unknown name. Another horrible outcome would be blind worship of the creator which breaks the purpose of properly engaging with art. Placing too much attention on names would force us to create an image before even interacting, just like how many rave Naoya’s paintings as his father’s or the mural as Naoya’s.</p><p id="3515037e-775e-4e47-8642-9e0454d58cd5" class="">What matters with art is the message that oozes from the canvas, the screen, or the speakers, and how we interpret and apply it. The name listed might not even be correct as ghostwriters might have written a significant percentage. Especially these days, with multiple people cooperating to make a single title, this notion becomes even more important as placing attention on a single person drowns the team effort. Even then, authors have editors, artists hire assistants, and masters learned from other masters. Even if only one person is responsible for the strokes on the canvas, there is always someone else making that happen. Sakuuta also presents this idea with Kei and Naoya who were only able to finish up their fruits of labor with each other’s influence. At the end of <em>Abend</em>, we are reminded of the fact that what’s important is expressing the message for the people we care about, just like how Akasi dedicated three whole years just for his sisters to smile and express his gratitude for the pastor that saved his sister.</p><blockquote id="09cec8e7-7e6e-4154-91e0-d1c3f8b16ba7" class="">作品が何のために生まれたのか、何のために作られたのか……。 我々が何のために作品を作るのか……それさえ見失わなければ問題無い……。 そこに刻まれる名が、自分の名前では無いとしてもだ……。 【明石】</blockquote><p id="8d6430ff-57bc-4b01-b023-e2a7e94c30dd" class="">The act of creation should be enjoyable. Artists offer their blood, toils, sweat, and tears just to conjure a single artwork. It is an immensely tiring process, but still, it should be enjoyable. We are dedicating our soul to ourselves, which also means that we are dedicating it to those whom we love.</p><figure id="d59577b6-493b-4454-a693-ae35dcc31eb3" class="image"><a href="https://miro.medium.com/v2/resize:fit:1400/1*gsLHfPkCJyRQtRNzFjFHSA.jpeg"><img style="width:700px" src="https://miro.medium.com/v2/resize:fit:1400/1*gsLHfPkCJyRQtRNzFjFHSA.jpeg"/></a></figure><p id="8a3188ca-4092-4aee-89b5-36b2f99d67d3" class="">Our brain is wider than the sky and deeper than the sea. It is capable of possibilities than what we can comprehend, surpassing nature itself. In this sense, an objective Beauty like what Rin proposes might be the reason for this endless potential we possess. I personally think that this refers to our imagination creating worlds unlike any other to think of possibilities for our reality. We conjure a situation that would improve our current situation, creating a better place to live for those around us. It is not an entity or Idea separate from humankind that we borrow from, but a mishmash of elements from the facts and characteristics of the world we know that culminate into what we call art.</p><p id="c8b177b1-4a6b-4cc1-a715-afad0380f2a7" class="">And what other than death is a fact so clear to us that no matter what we do, we can never escape it? We are always stuck in this awkward, cramped location between birth and death. Death always stick around us; the foul stench of a corpse has ingrained itself on us. To reject death would be a denial of life. What we can do is accept that our lives are like sakura petals, beautiful but ephemeral. We are in a constant flux as the petals flutter from the tree, swayed by the winds of the world. Life will never be easy, but we can always find the beauty and the happiness from simple moments even as the wind toys around the scattering flowers, tormenting us. Only by finding beauty in relation to death can we appreciate life.</p><blockquote id="ddc5ee7f-47d1-4cb5-9e8a-240fa3d87d8d" class="">そいつは桜の中に死を感じる事によって、その美しさを気軽に、ごく自然に受け入れる事に成功した。 桜は死人に手向けるには、きらびやかすぎる。 生きている人間にこそふさわしい……。 【直哉】</blockquote><p id="cc98d29b-c6da-40c1-9148-6fbbafc7360f" class="">But a sakura petal doesn’t flow by itself. Others are always accompanying it as a single petal doesn’t have the ability to decorate spring nor does it even have the ability to be beautiful on its own. By isolating itself to its own world, it’d fail to have a proper existence as since the meaning we find in sakura isn’t there, just like how a fog only exists after we develop a narrative for it. Only in a nice derangement of cacophonies and harmonies can we find a beauty in a petal. This is why we love others and long for warmth. Our sacrifices are never fully for our own as barely any of us can be that altruistic. We are exposed to this cold world alone, and we will leave it alone as well. But creating an artwork with ourselves involving others would leave an impression, even a minor one, and make us happy.</p><blockquote id="b5daea67-07fb-42c9-878d-70d4b8cee85f" class="">人は一人で生まれて、一人で死んでいく その間だけでも、その寂しさが無くなれば良いと考える もしかしたら、愛っていうのはそういう事なのかもしれない……って思うんだよ 人は寒さに耐えられないから、人を愛する 寒さに耐えられるのなら、もしかしたら愛なんていらないかもしれないな 【藍】</blockquote><figure id="75bcc94a-2937-404e-a007-efe76cd023bf" class="image"><a href="https://miro.medium.com/v2/resize:fit:1400/1*o61GuNmRPHFhoolgsH5Ptw.jpeg"><img style="width:700px" src="https://miro.medium.com/v2/resize:fit:1400/1*o61GuNmRPHFhoolgsH5Ptw.jpeg"/></a></figure><p id="742b47cd-7a05-432a-a880-103c9909295b" class="">As we live and continue flowing in the air, other petals would land on the ground first. They will rot before us or get blown away to a distant land without a moment’s notice. The petals around us would slowly disappear one by one, but more petals would continue to appear. They would never replace the original petals, but we should continue fluttering with an elegant luster unlike any other. Our goal is to celebrate the lives of those around us, and our own, as we resist the wind in an attempt to flutter forevermore, shining like the brightest sun. Even if we lose what we consider precious, we should remain a radiant star.</p><blockquote id="17e3b4c8-bc88-4bf5-b203-a2b165b7c06e" class="">先生は私なんかよりも多くのものを失っている。 私の怪我なんて問題じゃないぐらい。 にも関わらず、先生に欠けているものなんてなかった。 先生は数多くのものを失っているのに……それでも欠けた部分なんて無かった。 【桜子】</blockquote><p id="c4c27a4a-b19d-406a-b656-9eb88446971a" class="">We are powerless beings. Humanity is cursed with an inevitable, irresistible death. We are constrained by the limits of who we are and what we can think, but even so we have an endless potential to shine and live a happy life. We will eventually die, but the artwork we call life should be an eternal beauty that strikes awe in others and ourselves. Even though we acknowledge the impending death, we will never experience our own passing nor should we spend too much time thinking about it. The hedonistic fight for insurmountable happiness and joy would only amount to short bursts of happiness, just like how the world feels worse after tripping with drugs (I don’t know this is all hearsay from eroge. I’m straightedged never tried drugs :P). With this, we should view our artwork in the context of eternity and whether or not we would be proud of living such a life. We don’t need an external force dictating what counts as a meaningful existence as what we have is a weak god that dictates the beauty of our works.</p><figure id="802c54d3-4553-484d-8006-d46eae06909b" class="image"><a href="https://miro.medium.com/v2/resize:fit:1400/1*MH50cbqdQOjzFoDG7yNMTw.jpeg"><img style="width:700px" src="https://miro.medium.com/v2/resize:fit:1400/1*MH50cbqdQOjzFoDG7yNMTw.jpeg"/></a></figure><p id="8851254c-57ae-478f-8718-e7d8939ece0a" class="">芸術作品は永遠の相のもとに見られた対象である。 そしてよい生とは永遠の相のもとに見られた世界である。 ここに芸術と論理の関係がある。 何も、永遠の相を保証するのに、絶対的な神なんていらない。 人は、人のための神を感じ、そして、感動すればいい……。 【直哉】</p><p id="1efb9645-85fe-4632-880b-6ea3f8863ea7" class="">We are living in endless possibilities. We might be limited with what we can do, but we still own the potential to create a beautiful artwork. As we continue walking down the road, we will eventually reach a dead end. But the journey bears meaning as we decorate and celebrate the people around us. The melody rings forever, illuminating this cold world with the soft fire of sakura petals. Our syllables echo together, forming a rhythm of beauty and love. The hymns and odes to our life brings color to those around us as a paradise rises from the reverberation of our chipper humming. Our hands combined have constructed a shining palace that would happily sing for its whole life as we waltz around it.</p><h1 id="d144c149-dbfa-4751-9e35-7d8b97b187a1" class=""><strong>踊れ！踊れ！踊れ！旋律と共に！踊れ！</strong></h1><h1 id="8270ce1c-31a4-4905-bd4a-6c0d3f70335d" class="">I dwell in Possibility –A fairer House than Prose –More numerous of Windows –Superior — for Doors –Of Chambers as the Cedars –Impregnable of eye –And for an everlasting RoofThe Gambrels of the Sky –Of Visitors — the fairest –For Occupation — This –The spreading wide my narrow HandsTo gather Paradise –</h1><h2 id="8038b1d8-1387-44e6-8b9f-85353af43083" class=""><strong>–Emily Dickinson–</strong></h2><figure id="09143ee6-f697-4120-8e7b-62d83727c09f" class="image"><a href="https://miro.medium.com/v2/resize:fit:1400/1*OVprMM_j2HP09vh6-P97LA.jpeg"><img style="width:700px" src="https://miro.medium.com/v2/resize:fit:1400/1*OVprMM_j2HP09vh6-P97LA.jpeg"/></a></figure><p id="1c5042e9-18f4-4264-8fe6-832f3f4ade07" class="">Sources:</p><ul id="bffc0ddd-e130-4e99-93ea-ba8d7d79482d" class="bulleted-list"><li style="list-style-type:disc"><a href="https://plato.stanford.edu/entries/aristotle/">https://plato.stanford.edu/entries/aristotle/</a></li></ul><ul id="f2318cc7-a637-4a60-9cb9-1e9f53754c65" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.marxists.org/reference/archive/wilde-oscar/soul-man/">https://www.marxists.org/reference/archive/wilde-oscar/soul-man/</a></li></ul><ul id="cf96b928-9127-48cc-b52b-20376b9ffbfc" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.theguardian.com/environment/2020/feb/26/lead-poisoning-minorities-poor-americans">https://www.theguardian.com/environment/2020/feb/26/lead-poisoning-minorities-poor-americans</a></li></ul><ul id="04fa7939-d8e9-4e16-af73-3a195d8fab5e" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.wilde-online.info/the-decay-of-lying.html">https://www.wilde-online.info/the-decay-of-lying.html</a></li></ul><ul id="5b61fe74-2979-49c2-b2d8-65885584c9ff" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.poetryfoundation.org/poems/52197/i-dwell-in-possibility-466">https://www.poetryfoundation.org/poems/52197/i-dwell-in-possibility-466</a></li></ul><ul id="3a686188-a757-48c9-ac73-752ea58f97dc" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.poetry.com/poem/12159/the-brain%E2%80%94is-wider-than-the-sky">https://www.poetry.com/poem/12159/the-brain%E2%80%94is-wider-than-the-sky</a></li></ul><p id="69d1fb2e-4562-4538-9472-0b0a171a2cb7" class="">Special thanks to @sakuuta_bot on Twitter for saving me the hassle of transcribing a majority of the quotes I used.</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
