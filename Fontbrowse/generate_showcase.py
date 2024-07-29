@@ -1,52 +1,38 @@
-import os
-import glob
+name: Generate Font Showcase
 
-def generate_html():
-    font_dir = 'fonts'  # Directory where your fonts will be stored
-    html = '''
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Font Showcase</title>
-    <style>
-        body {
-            font-size: 18px;
-            line-height: 1.6;
-            font-family: Arial, sans-serif;
-        }
-        .font-example {
-            margin-bottom: 20px;
-            padding: 10px;
-            border: 1px solid #ddd;
-        }
-        @font-face {
-            font-family: '${font_name}';
-            src: url('${font_file}') format('truetype');
-        }
-    </style>
-</head>
-<body>
-    <h1>Font Showcase</h1>
-'''
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
 
-    for font_file in glob.glob(f'{font_dir}/*.ttf') + glob.glob(f'{font_dir}/*.otf'):
-        font_name = os.path.splitext(os.path.basename(font_file))[0]
-        html += f'''
-    <div class="font-example">
-        <h2>{font_name}</h2>
-        <p style="font-family: '{font_name}';">The quick brown fox jumps over the lazy dog.</p>
-    </div>
-        '''
+jobs:
+  build:
+    runs-on: ubuntu-latest
 
-    html += '''
-</body>
-</html>
-'''
+    steps:
+    - uses: actions/checkout@v2
 
-    with open('index.html', 'w') as f:
-        f.write(html)
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
 
-if __name__ == "__main__":
-    generate_html()
+    - name: Debug information
+      run: |
+        pwd
+        ls -R
+
+    - name: Generate HTML
+      run: |
+        cd Fontbrowse
+        python generate_showcase.py
+
+    - name: Commit changes
+      run: |
+        git config --local user.email "shadowdragongtas@gmail.com"
+        git config --local user.name "ssshingetsu"
+        git add Fontbrowse/index.html
+        git commit -m "Update font showcase" -a || echo "No changes to commit"
+        git push
