@@ -19,12 +19,15 @@ jobs:
         python-version: '3.x'
 
     - name: Generate HTML
-      run: python articles/Fontbrowse/generate_showcase.py
+     run: |
+        cd Fontbrowse
+        python generate_showcase.py
+
 
     - name: Commit changes
       run: |
         git config --local user.email "shadowdragongtas@gmail.com"
         git config --local user.name "ssshingetsu"
-        git add index.html
+        git add Fontbrowse/fonts/index.html
         git commit -m "Update font showcase" -a || echo "No changes to commit"
         git push
