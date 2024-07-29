@@ -19,7 +19,7 @@ jobs:
         python-version: '3.x'
 
     - name: Generate HTML
-      run: python generate_showcase.py
+      run: python articles/Fontbrowse/generate_showcase.py
 
     - name: Commit changes
       run: |
