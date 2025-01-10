@@ -1,4 +1,173 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Shingetsu's Kitchen</title><style>*{margin:0;padding:0;box-sizing:border-box;font-family:system-ui,-apple-system,sans-serif}body{background-color:#f3f4f6;color:#1f2937;line-height:1.5}.container{max-width:1200px;margin:0 auto;padding:2rem}h1{text-align:center;font-size:2.25rem;font-weight:700;margin-bottom:3rem;color:#111827}.card{background:#fff;border-radius:.75rem;box-shadow:0 1px 3px rgba(0,0,0,.1);margin-bottom:2rem;overflow:hidden}.card-header{padding:1.5rem 1.5rem 0}.card-title{font-size:1.25rem;font-weight:600;color:#111827;margin-bottom:1rem}.card-content{padding:1.5rem}.alert{background-color:#eff6ff;border-left:4px solid #3b82f6;padding:1rem;margin:1rem 0}.text-highlight{color:#1e40af;font-weight:600}.grid{display:grid;gap:2rem}@media (min-width:768px){.grid-cols-2{grid-template-columns:repeat(2,1fr)}.grid-cols-3{grid-template-columns:repeat(3,1fr)}}table{width:100%;border-collapse:collapse}td,th{padding:1rem;text-align:left;border-bottom:1px solid #e5e7eb}th{background:#f9fafb;font-weight:600}.weakness-tag{display:inline-block;background:#dbeafe;color:#1e40af;padding:.25rem .75rem;border-radius:9999px;font-size:.875rem;margin:.25rem}.weakness-tag{display:inline-block;background:#dbeafe;color:#1e40af;padding:.25rem .75rem;border-radius:9999px;font-size:.875rem;margin:.25rem;text-align:center}.char-card{background:#f9fafb;padding:1rem;border-radius:.5rem}.char-name{font-weight:500;margin-bottom:.25rem}.char-element{color:#666}.enemy-item{padding:1rem 0;border-bottom:1px solid #e5e7eb}.enemy-item:last-child{border-bottom:none}.enemy-name{font-weight:500;margin-bottom:.5rem}.list-disc{list-style-type:disc;padding-left:1.5rem}.space-y-4>*+*{margin-top:1rem}.avatar{border-radius:50%;height:120px;margin-left:12px}</style><script>document.addEventListener("DOMContentLoaded", () => {
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shingetsu's Kitchen  </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background-color: #f3f4f6;
+            color: #1f2937;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.25rem;
+            font-weight: bold;
+            margin-bottom: 3rem;
+            color: #111827;
+        }
+
+        .card {
+            background: white;
+            border-radius: 0.75rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            overflow: hidden;
+        }
+
+        .card-header {
+            padding: 1.5rem 1.5rem 0;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 1rem;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .alert {
+            background-color: #eff6ff;
+            border-left: 4px solid #3b82f6;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        .text-highlight {
+            color: #1e40af;
+            font-weight: 600;
+        }
+
+        .grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .grid-cols-2 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .grid-cols-3 {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        th {
+            background: #f9fafb;
+            font-weight: 600;
+        }
+
+        .weakness-tag {
+            display: inline-block;
+            background: #dbeafe;
+            color: #1e40af;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            margin: 0.25rem;
+        }
+
+        .weakness-tag {
+            display: inline-block;
+            background: #dbeafe;
+            color: #1e40af;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            margin: 0.25rem;
+            text-align: center; /* Ensure text is aligned properly */
+        }
+
+
+
+        .char-card {
+            background: #f9fafb;
+            padding: 1rem;
+            border-radius: 0.5rem;
+        }
+
+        .char-name {
+            font-weight: 500;
+            margin-bottom: 0.25rem;
+        }
+
+        .char-element {
+            color: #666;
+        }
+        
+
+        .enemy-item {
+            padding: 1rem 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .enemy-item:last-child {
+            border-bottom: none;
+        }
+
+        .enemy-name {
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .list-disc {
+            list-style-type: disc;
+            padding-left: 1.5rem;
+        }
+
+        .space-y-4 > * + * {
+            margin-top: 1rem;
+        }
+
+        .avatar {
+            border-radius: 50%;            /* Makes the image circular */
+            height: 120px;                 /* Set the height */
+            margin-left: 12px;
+        }
+
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
             const tags = document.querySelectorAll('.weakness-tag, .char-element');
     
             tags.forEach(tag => {
@@ -47,4 +216,366 @@
                     tag.insertBefore(img, tag.firstChild); // Add the image before the text
                 }
             });
-        });</script></head><body><div class="container"><img src="https://i.pinimg.com/736x/1c/b9/d4/1cb9d4133bfbf470f480e4dc90d3fb46.jpg" height="200px"> <img src="https://i.pinimg.com/736x/b3/69/07/b36907f65ce5ec1eaeaa5a8301620e01.jpg" height="200px"> <img src="https://i.pinimg.com/474x/43/9f/6f/439f6fe0f60bc2e892f844cf7583aefc.jpg" height="200px"> <img src="https://i.pinimg.com/736x/01/bd/df/01bddfa7c3ab83b3793b209948ba473d.jpg" height="200px"> <img src="https://i.pinimg.com/736x/c5/af/e1/c5afe12301b458a253423b197867794d.jpg" height="200px"><h1>Shingetsu's Kitchen Report #1</h1><div class="card"><div class="card-header"><h2 class="card-title">Important Notes</h2></div><div class="card-content space-y-4"><p>If the developers stay consistent, future weaknesses will primarily focus on<span class="text-highlight">Ice, Quantum, and Imaginary</span>, so you can filter monsters that have at least two of these weaknesses.</p><div class="alert">For bosses and elite monsters, weaknesses separated by commas indicate those without the weakness in regular content but appear in<span class="text-highlight">Simulated Universe: Swarm Disaster</span>or<span class="text-highlight">Memory of Chaos</span>.</div><p>For the last three types of monsters from Belobog, they do not summon minions, while the others either summon minions or are group-based by nature.</p></div></div><div class="card"><div class="card-header"><h2 class="card-title">Damage Multipliers</h2></div><div class="card-content"><table><thead><tr><th>Eidolons</th><th>Single-target</th><th>AoE (5 targets)</th></tr></thead><tbody><tr><td>No Eidolons (0星)</td><td>952%</td><td>2936%</td></tr><tr><td>1 Eidolon (1星)</td><td>1288%</td><td>3944%</td></tr></tbody></table></div></div><div class="grid grid-cols-2"><div class="card"><div class="card-header"><h2 class="card-title">Buffs & Bonuses</h2></div><div class="card-content"><ul class="list-disc"><li>80% ATK boost</li><li>50% Damage boost</li><li>60%/20%/25% Damage boosts (Weapon and Relics)</li><li>80% Critical damage from self-buffs</li><li>8%/12% Critical Rate (Relics and Light Cone)</li></ul></div></div><div class="card"><div class="card-header"><h2 class="card-title">Eidolon Damage Increases</h2></div><div class="card-content"><div class="space-y-4"><div><p class="bar-label">1 Eidolon:<span class="highlight-text">+30%</span></p><div class="bar-chart"><div class="bar" style="width:16.67%;background:linear-gradient(to right,#00c6ff,#0072ff)"></div></div></div><div><p class="bar-label">2 Eidolons:<span class="highlight-text">+90%</span></p><div class="bar-chart"><div class="bar" style="width:50%;background:linear-gradient(to right,#ff7e5f,#feb47b)"></div></div></div><div><p class="bar-label">6 Eidolons:<span class="highlight-text">+180%</span></p><div class="bar-chart"><div class="bar" style="width:100%;background:linear-gradient(to right,#ff9a8b,#ff6a88)"></div></div></div></div></div></div><style>.highlight-text{color:#1d40b0;font-weight:700}.card{background:#fff;border-radius:.75rem;box-shadow:0 1px 3px rgba(0,0,0,.1);margin-bottom:1.5rem;overflow:hidden}.card-header{padding:1rem 1rem 0}.card-title{font-size:1.125rem;font-weight:600;color:#111827;margin-bottom:1rem}.card-content{padding:1rem}.space-y-4 p{margin-bottom:.25rem}.bar-label{margin-bottom:.25rem}.bar-chart{margin-top:.25rem;width:100%}.bar{height:8px;border-radius:4px}.avatar-group{display:grid;grid-template-columns:repeat(auto-fill,minmax(80px,1fr));gap:15px;justify-items:center;margin-bottom:20px}.avatar-group img:hover{transform:scale(1.1);transition:transform .2s ease-in-out}</style></div><div class="card"><div class="card-header"><h2 class="card-title">Recommend Team</h2></div><div class="card-content"><div class="avatar-group"><img src="https://homdgcat.wiki/images/avataricon/avatar/1401.png" class="avatar"> <img src="https://homdgcat.wiki/images/avataricon/avatar/1013.png" class="avatar"> <img src="https://homdgcat.wiki/images/avataricon/avatar/1106.png" class="avatar"> <img src="https://homdgcat.wiki/images/avataricon/avatar/8008.png" class="avatar"></div><div class="card-header"><h2 class="card-title">Sustains</h2></div><div class="avatar-group"><img src="https://homdgcat.wiki/images/avataricon/avatar/1217.png" class="avatar"> <img src="https://homdgcat.wiki/images/avataricon/avatar/1222.png" class="avatar"> <img src="https://homdgcat.wiki/images/avataricon/avatar/1301.png" class="avatar"></div><div class="card-header"><h2 class="card-title">Jade Alternative</h2></div><div class="avatar-group"><img src="https://homdgcat.wiki/images/avataricon/avatar/1103.png" class="avatar"></div></div></div><div class="card"><div class="card-header"><h2 class="card-title">Future Characters</h2></div><div class="card-content"><div class="grid grid-cols-3"><div class="char-card"><div class="char-name">Tribbie (缇宝)</div><div class="char-element">Quantum (量子)</div></div><div class="char-card"><div class="char-name">Castorice (瑕蝶)</div><div class="char-element">Quantum (量子)</div></div><div class="char-card"><div class="char-name">Herta (大黑塔)</div><div class="char-element">Ice (冰)</div></div><div class="char-card"><div class="char-name">Anaxa (昔涟)</div><div class="char-element">Ice (冰)</div></div><div class="char-card"><div class="char-name">Mydei (万敌)</div><div class="char-element">Imaginary (虚数)</div></div><div class="char-card"><div class="char-name">Phainon (白厄)</div><div class="char-element">Imaginary (虚数)</div></div></div></div></div><div class="card"><div class="card-header"><h2 class="card-title">Enemy Weaknesses</h2></div><div class="card-content"><div class="space-y-4"><div class="enemy-item"><div class="enemy-name">True Sting (真蛰虫)</div><div><span class="weakness-tag">Ice</span><span class="weakness-tag">Quantum</span><span class="weakness-tag">Imaginary</span></div></div><div class="enemy-item"><div class="enemy-name">Starcrusher Swarm (碎星王虫)</div><div><span class="weakness-tag">Ice</span><span class="weakness-tag">Imaginary</span><span class="weakness-tag">Physical</span></div></div><div class="enemy-item"><div class="enemy-name">Sunday (神主日)</div><div><span class="weakness-tag">Imaginary</span><span class="weakness-tag">Fire</span><span class="weakness-tag">Lightning</span><span class="weakness-tag">Quantum*</span></div></div><div class="enemy-item"><div class="enemy-name">5 TV (五合一)</div><div><span class="weakness-tag">Ice</span><span class="weakness-tag">Imaginary</span><span class="weakness-tag">Fire</span><span class="weakness-tag">Lightning</span></div></div><div class="enemy-item"><div class="enemy-name">Argenti (银枝)</div><div><span class="weakness-tag">Ice</span><span class="weakness-tag">Fire</span><span class="weakness-tag">Physical</span><span class="weakness-tag">Imaginary</span></div></div><div class="enemy-item"><div class="enemy-name">IPC Leader (公司组长)</div><div><span class="weakness-tag">Ice</span><span class="weakness-tag">Imaginary</span><span class="weakness-tag">Fire</span></div></div><div class="enemy-item"><div class="enemy-name">Abundant Ebon Deer (丰饶玄鹿)</div><div><span class="weakness-tag">Ice</span><span class="weakness-tag">Imaginary</span><span class="weakness-tag">Fire</span></div></div><div class="enemy-item"><div class="enemy-name">Disciples of Sanctus Medicus: Shape Shifter (药王秘传炼形者)</div><div><span class="weakness-tag">Ice</span><span class="weakness-tag">Imaginary</span><span class="weakness-tag">Wind</span></div></div><div class="enemy-item"><div class="enemy-name">Stormbringer (兴风者)</div><div><span class="weakness-tag">Ice</span><span class="weakness-tag">Imaginary</span><span class="weakness-tag">Fire</span></div></div><div class="enemy-item"><div class="enemy-name">Silvermane Lieutenant (银鬃尉官)</div><div><span class="weakness-tag">Ice</span><span class="weakness-tag">Quantum</span><span class="weakness-tag">Physical</span></div></div><div class="enemy-item"><div class="enemy-name">Outer Cosmic Flame (外宇宙之炎)</div><div><span class="weakness-tag">Ice</span><span class="weakness-tag">Quantum</span><span class="weakness-tag">Physical</span></div></div><div class="enemy-item"><div class="enemy-name">Searing Prowler (炽燃徘徊者)</div><div><span class="weakness-tag">Ice</span><span class="weakness-tag">Imaginary</span><span class="weakness-tag">Lightning</span></div></div><div class="enemy-item"><div class="enemy-name">Automaton Direwolf (机兵齿狼)</div><div><span class="weakness-tag">Ice</span><span class="weakness-tag">Imaginary</span><span class="weakness-tag">Lightning</span></div></div></div></div></div></div></body></html>
+        });
+    </script>
+    
+
+</head>
+<body>
+    <div class="container">
+        <img src="https://i.pinimg.com/736x/1c/b9/d4/1cb9d4133bfbf470f480e4dc90d3fb46.jpg" height="200px"/>
+        <img src="https://i.pinimg.com/736x/b3/69/07/b36907f65ce5ec1eaeaa5a8301620e01.jpg" height="200px"/>
+        <img src="https://i.pinimg.com/474x/43/9f/6f/439f6fe0f60bc2e892f844cf7583aefc.jpg" height="200px"/>
+        <img src="https://i.pinimg.com/736x/01/bd/df/01bddfa7c3ab83b3793b209948ba473d.jpg" height="200px"/>
+        <img src="https://i.pinimg.com/736x/c5/af/e1/c5afe12301b458a253423b197867794d.jpg" height="200px"/>
+        <h1>Shingetsu's Kitchen Report #1</h1>
+
+        <!-- Important Notes -->
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title">Important Notes</h2>
+            </div>
+            <div class="card-content space-y-4">
+                <p>
+                    If the developers stay consistent, future weaknesses will primarily focus on 
+                    <span class="text-highlight">Ice, Quantum, and Imaginary</span>, so you can filter monsters that have at least two of these weaknesses.
+                </p>
+                <div class="alert">
+                    For bosses and elite monsters, weaknesses separated by commas indicate those without the weakness in regular content but appear in 
+                    <span class="text-highlight">Simulated Universe: Swarm Disaster</span> or 
+                    <span class="text-highlight">Memory of Chaos</span>.
+                </div>
+                <p>
+                    For the last three types of monsters from Belobog, they do not summon minions, while the others either summon minions or are group-based by nature.
+                </p>
+            </div>
+        </div>
+
+        <!-- Damage Multipliers -->
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title">Damage Multipliers</h2>
+            </div>
+            <div class="card-content">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Eidolons</th>
+                            <th>Single-target</th>
+                            <th>AoE (5 targets)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>No Eidolons (0星)</td>
+                            <td>952%</td>
+                            <td>2936%</td>
+                        </tr>
+                        <tr>
+                            <td>1 Eidolon (1星)</td>
+                            <td>1288%</td>
+                            <td>3944%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Buffs and Eidolon Increases Grid -->
+        <div class="grid grid-cols-2">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">Buffs & Bonuses</h2>
+                </div>
+                <div class="card-content">
+                    <ul class="list-disc">
+                        <li>80% ATK boost</li>
+                        <li>50% Damage boost</li>
+                        <li>60%/20%/25% Damage boosts (Weapon and Relics)</li>
+                        <li>80% Critical damage from self-buffs</li>
+                        <li>8%/12% Critical Rate (Relics and Light Cone)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">Eidolon Damage Increases</h2>
+                </div>
+                <div class="card-content">
+                    <div class="space-y-4">
+                        <!-- 1 Eidolon: +30% -->
+                        <div>
+                            <p class="bar-label">1 Eidolon: <span class="highlight-text">+30%</span></p>
+                            <div class="bar-chart">
+                                <div class="bar" style="width: 16.67%; background: linear-gradient(to right, #00c6ff, #0072ff);"></div>
+                            </div>
+                        </div>
+            
+                        <!-- 2 Eidolons: +90% -->
+                        <div>
+                            <p class="bar-label">2 Eidolons: <span class="highlight-text">+90%</span></p>
+                            <div class="bar-chart">
+                                <div class="bar" style="width: 50%; background: linear-gradient(to right, #ff7e5f, #feb47b);"></div>
+                            </div>
+                        </div>
+            
+                        <!-- 6 Eidolons: +180% -->
+                        <div>
+                            <p class="bar-label">6 Eidolons: <span class="highlight-text">+180%</span></p>
+                            <div class="bar-chart">
+                                <div class="bar" style="width: 100%; background: linear-gradient(to right, #ff9a8b, #ff6a88);"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>            
+            
+            <style>
+                .highlight-text {
+                    color: #1d40b0;  /* Change this color to whatever you'd like */
+                    font-weight: bold; /* Optional, to make the percentage stand out more */
+                }
+
+                .card {
+                    background: white;
+                    border-radius: 0.75rem;
+                    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+                    margin-bottom: 1.5rem;
+                    overflow: hidden;
+                }
+            
+                .card-header {
+                    padding: 1rem 1rem 0;
+                }
+            
+                .card-title {
+                    font-size: 1.125rem;
+                    font-weight: 600;
+                    color: #111827;
+                    margin-bottom: 1rem;
+                }
+            
+                .card-content {
+                    padding: 1rem;
+                }
+            
+                .space-y-4 p {
+                    margin-bottom: 0.25rem;
+                }
+            
+                .bar-label {
+                    margin-bottom: 0.25rem; /* Reduced margin between paragraphs */
+                }
+            
+                .bar-chart {
+                    margin-top: 0.25rem;
+                    width: 100%;
+                }
+            
+                .bar {
+                    height: 8px;
+                    border-radius: 4px;
+                }
+                .avatar-group {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); /* Responsive grid */
+                gap: 15px;
+                justify-items: center;
+                margin-bottom: 20px;
+            }
+            .avatar-group img:hover {
+            transform: scale(1.1);
+            transition: transform 0.2s ease-in-out;
+            }
+            </style>
+            
+        </div>
+
+        <!-- Teammates -->
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title">Recommend Team</h2>
+            </div>
+            <div class="card-content">
+                <div class="avatar-group">
+                    <img src="https://homdgcat.wiki/images/avataricon/avatar/1401.png" class="avatar" />
+                    <img src="https://homdgcat.wiki/images/avataricon/avatar/1013.png" class="avatar" />
+                    <img src="https://homdgcat.wiki/images/avataricon/avatar/1106.png" class="avatar" />
+                    <img src="https://homdgcat.wiki/images/avataricon/avatar/8008.png" class="avatar" />
+                </div>
+        
+                <div class="card-header">
+                    <h2 class="card-title">Sustains</h2>
+                </div>
+                <div class="avatar-group">
+                    <img src="https://homdgcat.wiki/images/avataricon/avatar/1217.png" class="avatar" />
+                    <img src="https://homdgcat.wiki/images/avataricon/avatar/1222.png" class="avatar" />
+                    <img src="https://homdgcat.wiki/images/avataricon/avatar/1301.png" class="avatar" />
+                </div>
+        
+                <div class="card-header">
+                    <h2 class="card-title">Jade Alternative</h2>
+                </div>
+                <div class="avatar-group">
+                    <img src="https://homdgcat.wiki/images/avataricon/avatar/1103.png" class="avatar" />
+                </div>
+            </div>
+        </div>
+        
+        <!-- Future Characters -->
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title">Future Characters</h2>
+            </div>
+            <div class="card-content">
+                <div class="grid grid-cols-3">
+                    <div class="char-card">
+                        <div class="char-name">Tribbie (缇宝)</div>
+                        <div class="char-element">Quantum (量子)</div>
+                    </div>
+                    <div class="char-card">
+                        <div class="char-name">Castorice (瑕蝶)</div>
+                        <div class="char-element">Quantum (量子)</div>
+                    </div>
+                    <div class="char-card">
+                        <div class="char-name">Herta (大黑塔)</div>
+                        <div class="char-element">Ice (冰)</div>
+                    </div>
+                    <div class="char-card">
+                        <div class="char-name">Anaxa (昔涟)</div>
+                        <div class="char-element">Ice (冰)</div>
+                    </div>
+                    <div class="char-card">
+                        <div class="char-name">Mydei (万敌)</div>
+                        <div class="char-element">Imaginary (虚数)</div>
+                    </div>
+                    <div class="char-card">
+                        <div class="char-name">Phainon (白厄)</div>
+                        <div class="char-element">Imaginary (虚数)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Enemy Weaknesses -->
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title">Enemy Weaknesses</h2>
+            </div>
+            <div class="card-content">
+                <div class="space-y-4">
+                    <div class="enemy-item">
+                        <div class="enemy-name">True Sting (真蛰虫)</div>
+                        <div>
+                            <span class="weakness-tag">Ice</span>
+                            <span class="weakness-tag">Quantum</span>
+                            <span class="weakness-tag">Imaginary</span>
+                        </div>
+                    </div>
+                    <!-- Continue with all enemies following the same pattern -->
+                    <div class="enemy-item">
+                        <div class="enemy-name">Starcrusher Swarm (碎星王虫)</div>
+                        <div>
+                            <span class="weakness-tag">Ice</span>
+                            <span class="weakness-tag">Imaginary</span>
+                            <span class="weakness-tag">Physical</span>
+                        </div>
+                    </div>
+                    <div class="enemy-item">
+                        <div class="enemy-name">Sunday (神主日)</div>
+                        <div>
+                            <span class="weakness-tag">Imaginary</span>
+                            <span class="weakness-tag">Fire</span>
+                            <span class="weakness-tag">Lightning</span>
+                            <span class="weakness-tag">Quantum*</span>
+                        </div>
+                    </div>
+                    <div class="enemy-item">
+                        <div class="enemy-name">5 TV (五合一)</div>
+                        <div>
+                            <span class="weakness-tag">Ice</span>
+                            <span class="weakness-tag">Imaginary</span>
+                            <span class="weakness-tag">Fire</span>
+                            <span class="weakness-tag">Lightning</span>
+                        </div>
+                    </div>
+                    <div class="enemy-item">
+                        <div class="enemy-name">Argenti (银枝)</div>
+                        <div>
+                            <span class="weakness-tag">Ice</span>
+                            <span class="weakness-tag">Fire</span>
+                            <span class="weakness-tag">Physical</span>
+                            <span class="weakness-tag">Imaginary</span>
+                        </div>
+                    </div>
+                    <div class="enemy-item">
+                        <div class="enemy-name">IPC Leader (公司组长)</div>
+                        <div>
+                            <span class="weakness-tag">Ice</span>
+                            <span class="weakness-tag">Imaginary</span>
+                            <span class="weakness-tag">Fire</span>
+                        </div>
+                    </div>
+                    <div class="enemy-item">
+                        <div class="enemy-name">Abundant Ebon Deer (丰饶玄鹿)</div>
+                        <div>
+                            <span class="weakness-tag">Ice</span>
+                            <span class="weakness-tag">Imaginary</span>
+                            <span class="weakness-tag">Fire</span>
+                        </div>
+                    </div>
+                    <div class="enemy-item">
+                        <div class="enemy-name">Disciples of Sanctus Medicus: Shape Shifter (药王秘传炼形者)</div>
+                        <div>
+                            <span class="weakness-tag">Ice</span>
+                            <span class="weakness-tag">Imaginary</span>
+                            <span class="weakness-tag">Wind</span>
+                        </div>
+                    </div>
+                    <div class="enemy-item">
+                        <div class="enemy-name">Stormbringer (兴风者)</div>
+                        <div>
+                            <span class="weakness-tag">Ice</span>
+                            <span class="weakness-tag">Imaginary</span>
+                            <span class="weakness-tag">Fire</span>
+                        </div>
+                    </div>
+                    <div class="enemy-item">
+                        <div class="enemy-name">Silvermane Lieutenant (银鬃尉官)</div>
+                        <div>
+                            <span class="weakness-tag">Ice</span>
+                            <span class="weakness-tag">Quantum</span>
+                            <span class="weakness-tag">Physical</span>
+                        </div>
+                    </div>
+                    <div class="enemy-item">
+                        <div class="enemy-name">Outer Cosmic Flame (外宇宙之炎)</div>
+                        <div>
+                            <span class="weakness-tag">Ice</span>
+                            <span class="weakness-tag">Quantum</span>
+                            <span class="weakness-tag">Physical</span>
+                        </div>
+                    </div>
+                    <div class="enemy-item">
+                        <div class="enemy-name">Searing Prowler (炽燃徘徊者)</div>
+                        <div>
+                            <span class="weakness-tag">Ice</span>
+                            <span class="weakness-tag">Imaginary</span>
+                            <span class="weakness-tag">Lightning</span>
+                        </div>
+                    </div>
+                    <div class="enemy-item">
+                        <div class="enemy-name">Automaton Direwolf (机兵齿狼)</div>
+                        <div>
+                            <span class="weakness-tag">Ice</span>
+                            <span class="weakness-tag">Imaginary</span>
+                            <span class="weakness-tag">Lightning</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
