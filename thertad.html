@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,27 +5,98 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shingetsu's Kitchen</title>
     <link id="theme" rel="stylesheet" href="light.css">
+    <style>
+        #theme-switcher {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 2px solid #ddd;
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+            padding: 0;
+        }
 
-        <button id="theme-switcher" aria-label="Switch theme">🌞</button>
+        #theme-switcher:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        #theme-switcher svg {
+            width: 24px;
+            height: 24px;
+            fill: #4a5568;
+            transition: fill 0.3s ease;
+        }
+
+        [data-theme="dark"] #theme-switcher {
+            background: rgba(30, 30, 30, 0.9);
+            border-color: #444;
+        }
+
+        [data-theme="dark"] #theme-switcher svg {
+            fill: #e2e8f0;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            #theme-switcher {
+                transition: none;
+            }
+        }
+    </style>
+
+    <button id="theme-switcher" aria-label="Switch theme">
+        <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+        </svg>
+        <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="display: none;">
+            <path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+        </svg>
+    </button>
+
     <script>
         const themeLink = document.getElementById("theme");
         const themeSwitcher = document.getElementById("theme-switcher");
+        const sunIcon = themeSwitcher.querySelector(".sun-icon");
+        const moonIcon = themeSwitcher.querySelector(".moon-icon");
 
         const savedTheme = localStorage.getItem("theme") || "light";
         themeLink.setAttribute("href", savedTheme === "dark" ? "dark.css" : "light.css");
-        themeSwitcher.textContent = savedTheme === "dark" ? "🌜" : "🌞";
+        document.documentElement.setAttribute("data-theme", savedTheme);
+        
+        // Update initial icon state
+        if (savedTheme === "dark") {
+            sunIcon.style.display = "none";
+            moonIcon.style.display = "block";
+        } else {
+            sunIcon.style.display = "block";
+            moonIcon.style.display = "none";
+        }
 
         themeSwitcher.addEventListener("click", () => {
-        const currentTheme = themeLink.getAttribute("href");
-        if (currentTheme === "light.css") {
-            themeLink.setAttribute("href", "dark.css");
-            themeSwitcher.textContent = "🌜";
-            localStorage.setItem("theme", "dark");
-        } else {
-            themeLink.setAttribute("href", "light.css");
-            themeSwitcher.textContent = "🌞";
-            localStorage.setItem("theme", "light");
-        }
+            const currentTheme = themeLink.getAttribute("href");
+            if (currentTheme === "light.css") {
+                themeLink.setAttribute("href", "dark.css");
+                document.documentElement.setAttribute("data-theme", "dark");
+                sunIcon.style.display = "none";
+                moonIcon.style.display = "block";
+                localStorage.setItem("theme", "dark");
+            } else {
+                themeLink.setAttribute("href", "light.css");
+                document.documentElement.setAttribute("data-theme", "light");
+                sunIcon.style.display = "block";
+                moonIcon.style.display = "none";
+                localStorage.setItem("theme", "light");
+            }
         });
     </script>
 </head>
