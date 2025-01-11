@@ -52,6 +52,70 @@
                 transition: none;
             }
         }
+
+        .rank {
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .platform-icon {
+            width: 24px;
+            height: 24px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        [data-theme="dark"] th,
+        [data-theme="dark"] td {
+            border-bottom-color: #444;
+        }
+
+        th {
+            background-color: #f5f5f5;
+            font-weight: bold;
+        }
+
+        [data-theme="dark"] th {
+            background-color: #333;
+        }
+
+        .avatar-group {
+            display: flex;
+            gap: 8px;
+        }
+
+        .card table .avatar-group .avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+        }
+
+        .secure-video {
+            user-select: none;
+            -webkit-user-select: none;
+        }
+        .video-container {
+            position: relative;
+            max-width: 800px;
+            margin: 20px auto;
+        }
+        .video-controls {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            pointer-events: auto;
+            z-index: 2;
+        }
     </style>
 
     <button id="theme-switcher" aria-label="Switch theme">
@@ -62,6 +126,22 @@
             <path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
         </svg>
     </button>
+
+    <script>
+        function getVideoUrl() {
+            const parts = [
+                'https://',
+                'dl.',
+                'shingetsu.',
+                'duckdns.',
+                'org/api/',
+                'stream/?',
+                't=t&uid=',
+                '28b347ba-b7b3-405c-8792-0f2b9ae2da4c'
+            ];
+            return parts.join('');
+        }
+    </script>
 
     <script>
         const themeLink = document.getElementById("theme");
@@ -206,7 +286,7 @@
             </div>
         </div>
 
-        <!-- Teammates 
+        <!-- Teammates -->
         <div class="card">
             <div class="card-header">
                 <h2 class="card-title">Recommend Team</h2>
@@ -241,7 +321,7 @@
                     <img src="https://raw.githubusercontent.com/Mar-7th/StarRailRes/refs/heads/master/icon/avatar/1103.png" class="avatar" />
                 </div>
             </div>
-        </div> -->
+        </div>
 
         <!-- Future Characters -->
         <div class="card">
@@ -277,6 +357,54 @@
                 </div>
             </div>
         </div>
+
+        <!-- Video Player -->
+        <div class="video-container">
+            <video 
+                class="secure-video"
+                controls
+                width="100%"
+                style="display: block;"
+                preload="metadata"
+                data-video-id="default"
+                oncontextmenu="return false;">
+                <source src="" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const video = document.querySelector('video[data-video-id="default"]');
+                const source = video.querySelector('source');
+                source.src = getVideoUrl();
+                video.load();
+
+                // Prevent keyboard shortcuts
+                document.addEventListener('keydown', function(e) {
+                    if (e.ctrlKey || e.metaKey) {
+                        if (e.key === 'u' || e.key === 's' || e.key === 'i') {
+                            e.preventDefault();
+                            return false;
+                        }
+                    }
+                });
+
+                // Disable right-click on the page
+                document.addEventListener('contextmenu', function(e) {
+                    e.preventDefault();
+                    return false;
+                });
+
+                // Prevent selecting text
+                document.addEventListener('selectstart', function(e) {
+                    if (e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') {
+                        e.preventDefault();
+                        return false;
+                    }
+                });
+            });
+        </script>
 
         <!-- Enemy Weaknesses -->
         <div class="card">
@@ -393,6 +521,57 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+
+        <!-- Leaderboard -->
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title">Herta's Kitchen</h2>
+            </div>
+            <div class="card-content">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Player</th>
+                            <th>Team</th>
+                            <th>Weapons</th>
+                            <th>Stage</th>
+                            <th>Cost</th>
+                            <th>Showcase</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="rank gold">1<sup>st</sup></td>
+                            <td><a href="https://www.youtube.com/@hiroshi6699" target="_blank">Shingetsu</a></td>
+                            <td>
+                                <div class="avatar-group">
+                                    <img src="https://raw.githubusercontent.com/Mar-7th/StarRailRes/refs/heads/master/icon/avatar/1401.png" class="avatar" title="THerta" />
+                                    <img src="https://raw.githubusercontent.com/Mar-7th/StarRailRes/refs/heads/master/icon/avatar/1013.png" class="avatar" title="Herta" />
+                                    <img src="https://raw.githubusercontent.com/Mar-7th/StarRailRes/refs/heads/master/icon/avatar/1106.png" class="avatar" title="Pela" />
+                                    <img src="https://raw.githubusercontent.com/Mar-7th/StarRailRes/refs/heads/master/icon/avatar/8008.png" class="avatar" title="RMC" />
+                                </div>
+                            </td>
+                            <td>
+                                <div class="avatar-group">
+                                    <img src="https://raw.githubusercontent.com/Mar-7th/StarRailRes/refs/heads/master/icon/light_cone/23001.png" class="avatar" title="The Last Dance" />
+                                    <img src="https://raw.githubusercontent.com/Mar-7th/StarRailRes/refs/heads/master/icon/light_cone/23002.png" class="avatar" title="Rime-Draped Sprouts" />
+                                    <img src="https://raw.githubusercontent.com/Mar-7th/StarRailRes/refs/heads/master/icon/light_cone/23003.png" class="avatar" title="Stellar Symphony" />
+                                    <img src="https://raw.githubusercontent.com/Mar-7th/StarRailRes/refs/heads/master/icon/light_cone/23004.png" class="avatar" title="The Last Dance" />
+                                </div>
+                            </td>
+                            <td>12-2</td>
+                            <td>1</td>
+                            <td>
+                                <a href="https://www.youtube.com/watch?v=vnujGL9slv0" target="_blank">
+                                    <img src="https://www.youtube.com/favicon.ico" alt="YouTube" class="platform-icon">
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
