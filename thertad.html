@@ -5,206 +5,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shingetsu's Kitchen</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: system-ui, -apple-system, sans-serif;
-        }
+    <link id="theme" rel="stylesheet" href="light.css">
 
-        body {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #1a1a2e 100%);
-            color: #e2e8f0;
-            line-height: 1.5;
-            min-height: 100vh;
-        }
+        <button id="theme-switcher" aria-label="Switch theme">🌞</button>
+    <script>
+        const themeLink = document.getElementById("theme");
+        const themeSwitcher = document.getElementById("theme-switcher");
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
+        const savedTheme = localStorage.getItem("theme") || "light";
+        themeLink.setAttribute("href", savedTheme === "dark" ? "dark.css" : "light.css");
+        themeSwitcher.textContent = savedTheme === "dark" ? "🌜" : "🌞";
 
-        h1 {
-            text-align: center;
-            font-size: clamp(1.75rem, 5vw, 2.25rem);
-            font-weight: bold;
-            line-height: 1.2;
-            margin-block: 1.5rem 3rem;
-            letter-spacing: -0.02em;
-            text-wrap: balance;
-            background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 50%, #f472b6 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            background-size: 200% 100%;
-            animation: gradient-shift 8s ease infinite;
+        themeSwitcher.addEventListener("click", () => {
+        const currentTheme = themeLink.getAttribute("href");
+        if (currentTheme === "light.css") {
+            themeLink.setAttribute("href", "dark.css");
+            themeSwitcher.textContent = "🌜";
+            localStorage.setItem("theme", "dark");
+        } else {
+            themeLink.setAttribute("href", "light.css");
+            themeSwitcher.textContent = "🌞";
+            localStorage.setItem("theme", "light");
         }
-
-        .card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 0.75rem;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            margin-bottom: 2rem;
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-        }
-
-        .card-header {
-            padding: 1.5rem 1.5rem 0;
-        }
-
-        .card-title {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: #f8fafc;
-            margin-bottom: 1rem;
-        }
-
-        .card-content {
-            padding: 1.5rem;
-        }
-
-        .alert {
-            background: rgba(59, 130, 246, 0.1);
-            border-left: 4px solid #3b82f6;
-            padding: 1rem;
-            margin: 1rem 0;
-        }
-
-        .text-highlight {
-            color: #93c5fd;
-            font-weight: 600;
-        }
-
-        .grid {
-            display: grid;
-            gap: 2rem;
-        }
-
-        @media (min-width: 768px) {
-            .grid-cols-2 {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .grid-cols-3 {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-
-        table {
-            width: 100%;
-            border-collapse: separate;
-            border-spacing: 0;
-        }
-
-        th, td {
-            padding: 1rem;
-            text-align: left;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        th {
-            background: rgba(255, 255, 255, 0.05);
-            font-weight: 600;
-            color: #f8fafc;
-        }
-
-        .weakness-tag {
-            display: inline-block;
-            background: rgba(219, 234, 254, 0.1);
-            color: #93c5fd;
-            padding: 0.25rem 0.75rem;
-            border-radius: 9999px;
-            font-size: 0.875rem;
-            margin: 0.25rem;
-            border: 1px solid rgba(147, 197, 253, 0.3);
-        }
-
-        .char-card {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 1rem;
-            border-radius: 0.5rem;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .char-name {
-            color: #f8fafc;
-            font-weight: 500;
-            margin-bottom: 0.25rem;
-        }
-
-        .char-element {
-            color: #94a3b8;
-        }
-
-        .enemy-item {
-            padding: 1rem 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .enemy-name {
-            font-weight: 500;
-            margin-bottom: 0.5rem;
-        }
-
-        .list-disc {
-            list-style-type: disc;
-            padding-left: 1.5rem;
-        }
-
-        .space-y-4 > * + * {
-            margin-top: 1rem;
-        }
-
-        .avatar {
-            border-radius: 50%;
-            height: 100px;
-            transition: transform 0.3s ease;
-            border: 2px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .avatar:hover {
-            transform: scale(1.05);
-        }
-
-        .avatar-group {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
-            gap: 15px;
-            justify-items: center;
-            margin-bottom: 20px;
-        }
-
-        .highlight-text {
-            color: #93c5fd;
-            font-weight: bold;
-        }
-
-        .bar-chart {
-            margin-top: 0.25rem;
-            width: 100%;
-        }
-
-        .bar {
-            height: 8px;
-            background: linear-gradient(to right, rgba(96, 165, 250, 0.5), rgba(167, 139, 250, 0.5));
-            border-radius: 4px;
-        }
-
-        @keyframes gradient-shift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-    </style>
+        });
+    </script>
 </head>
 <body>
     <div class="container">
