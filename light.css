@@ -1,0 +1,179 @@
+
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: system-ui, -apple-system, sans-serif;
+            }
+
+            body {
+                background-color: #f3f4f6;
+                color: #1f2937;
+                line-height: 1.5;
+            }
+
+            .container {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 2rem;
+            }
+
+            h1 {
+                text-align: center;
+                font-size: clamp(1.75rem, 5vw, 2.25rem);
+                font-weight: bold;
+                line-height: 1.2;
+                margin-block: 1.5rem 3rem;
+                letter-spacing: -0.02em;
+                text-wrap: balance;
+                
+                /* Gradient text effect */
+                background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 50%, #EC4899 100%);
+                -webkit-background-clip: text;
+                background-clip: text;
+                color: transparent;
+                
+                /* Optional animation */
+                background-size: 200% 100%;
+                animation: gradient-shift 8s ease infinite;
+                }
+
+                /* Optional keyframes for animated gradient */
+                @keyframes gradient-shift {
+                0% { background-position: 0% 50%; }
+                50% { background-position: 100% 50%; }
+                100% { background-position: 0% 50%; }
+                }
+
+            .card {
+                background: white;
+                border-radius: 0.75rem;
+                box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+                margin-bottom: 2rem;
+                overflow: hidden;
+            }
+
+            .card-header {
+                padding: 1.5rem 1.5rem 0;
+            }
+
+            .card-title {
+                font-size: 1.25rem;
+                font-weight: 600;
+                color: #111827;
+                margin-bottom: 1rem;
+            }
+
+            .card-content {
+                padding: 1.5rem;
+            }
+
+            .alert {
+                background-color: #eff6ff;
+                border-left: 4px solid #3b82f6;
+                padding: 1rem;
+                margin: 1rem 0;
+            }
+
+            .text-highlight {
+                color: #1e40af;
+                font-weight: 600;
+            }
+
+            .grid {
+                display: grid;
+                gap: 2rem;
+            }
+
+            @media (min-width: 768px) {
+                .grid-cols-2 {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+                .grid-cols-3 {
+                    grid-template-columns: repeat(3, 1fr);
+                }
+            }
+
+            table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+
+            th, td {
+                padding: 1rem;
+                text-align: left;
+                border-bottom: 1px solid #e5e7eb;
+            }
+
+            th {
+                background: #f9fafb;
+                font-weight: 600;
+            }
+
+            .weakness-tag {
+                display: inline-block;
+                background: #dbeafe;
+                color: #1e40af;
+                padding: 0.25rem 0.75rem;
+                border-radius: 9999px;
+                font-size: 0.875rem;
+                margin: 0.25rem;
+            }
+
+            .weakness-tag {
+                display: inline-block;
+                background: #dbeafe;
+                color: #1e40af;
+                padding: 0.25rem 0.75rem;
+                border-radius: 9999px;
+                font-size: 0.875rem;
+                margin: 0.25rem;
+                text-align: center; /* Ensure text is aligned properly */
+            }
+
+
+
+            .char-card {
+                background: #f9fafb;
+                padding: 1rem;
+                border-radius: 0.5rem;
+            }
+
+            .char-name {
+                font-weight: 500;
+                margin-bottom: 0.25rem;
+            }
+
+            .char-element {
+                color: #666;
+            }
+            
+
+            .enemy-item {
+                padding: 1rem 0;
+                border-bottom: 1px solid #e5e7eb;
+            }
+
+            .enemy-item:last-child {
+                border-bottom: none;
+            }
+
+            .enemy-name {
+                font-weight: 500;
+                margin-bottom: 0.5rem;
+            }
+
+            .list-disc {
+                list-style-type: disc;
+                padding-left: 1.5rem;
+            }
+
+            .space-y-4 > * + * {
+                margin-top: 1rem;
+            }
+
+            .avatar {
+                border-radius: 50%;            /* Makes the image circular */
+                margin-left: 12px;
+                height: 100px;
+            }
