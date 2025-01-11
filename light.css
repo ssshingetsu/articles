@@ -177,55 +177,61 @@
                 margin-left: 12px;
                 height: 100px;
             }
- .highlight-text {
-                        color: #1d40b0;  /* Change this color to whatever you'd like */
-                        font-weight: bold; /* Optional, to make the percentage stand out more */
-                    }
+            .highlight-text {
+                color: #1d40b0;  /* Change this color to whatever you'd like */
+                font-weight: bold; /* Optional, to make the percentage stand out more */
+            }
 
-                    .card {
-                        background: white;
-                        border-radius: 0.75rem;
-                        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-                        margin-bottom: 1.5rem;
-                        overflow: hidden;
-                    }
-                
-                    .card-header {
-                        padding: 1rem 1rem 0;
-                    }
-                
-                    .card-title {
-                        font-size: 1.125rem;
-                        font-weight: 600;
-                        color: #111827;
-                        margin-bottom: 1rem;
-                    }
-                
-                    .card-content {
-                        padding: 1rem;
-                    }
-                
-                    .space-y-4 p {
-                        margin-bottom: 0.25rem;
-                    }
-                
-                    .bar-label {
-                        margin-bottom: 0.25rem; /* Reduced margin between paragraphs */
-                    }
-                
-                    .bar-chart {
-                        margin-top: 0.25rem;
-                        width: 100%;
-                    }
-                
-                    .bar {
-                        height: 8px;
-                        border-radius: 4px;
-                    }
-                    .avatar-group {
-                    display: grid;
-                    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); /* Responsive grid */
-                    gap: 15px;
-                    justify-items: center;
-                    margin-bottom: 20px;
-                }
+            .card {
+                background: white;
+                border-radius: 0.75rem;
+                box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+                margin-bottom: 1.5rem;
+                overflow: hidden;
+            }
+        
+            .card-header {
+                padding: 1rem 1rem 0;
+            }
+        
+            .card-title {
+                font-size: 1.125rem;
+                font-weight: 600;
+                color: #111827;
+                margin-bottom: 1rem;
+            }
+        
+            .card-content {
+                padding: 1rem;
+            }
+        
+            .space-y-4 p {
+                margin-bottom: 0.25rem;
+            }
+        
+            .bar-label {
+                margin-bottom: 0.25rem; /* Reduced margin between paragraphs */
+            }
+        
+            .bar-chart {
+                margin-top: 0.25rem;
+                width: 100%;
+            }
+    
+            .bar {
+                height: 8px;
+                background: linear-gradient(to right, rgba(96, 165, 250, 0.5), rgba(167, 139, 250, 0.5));
+                border-radius: 4px;
+            }
+            .avatar-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); /* Responsive grid */
+            gap: 15px;
+            justify-items: center;
+            margin-bottom: 20px;
+        }
+             @keyframes gradient-shift {
+                0% { background-position: 0% 50%; }
+                50% { background-position: 100% 50%; }
+                100% { background-position: 0% 50%; }
+             }
