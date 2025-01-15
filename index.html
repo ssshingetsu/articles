@@ -104,6 +104,20 @@
                 background: rgba(0, 0, 0, 0.5);  /* Slightly less dark for light mode */
             }
         }
+
+        /* Remove underline only from platform links */
+        .platform-link {
+            text-decoration: none !important; /* Using !important to override any existing styles */
+            border-bottom: none !important;
+        }
+
+        /* Remove any after/before elements only from platform links */
+        .platform-link:after,
+        .platform-link:before {
+            display: none !important;
+        }
+            /* Or whatever your original link styling was */
+        }
     </style>
 
     <button id="theme-switcher" aria-label="Switch theme">
@@ -313,7 +327,7 @@
             </thead>
             <tbody>
               <tr>
-                <td><a href="player-url" target="_blank" class="underline">t0级风堇lover</a></td>
+                <td><a href="player-url" target="_blank" class="player-link">t0级风堇lover</a></td>
                 <td>
                   <div class="character-container">
                     <div class="character">
