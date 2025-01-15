@@ -105,18 +105,20 @@
             }
         }
 
-        /* Remove underline only from platform links */
+        /* Remove underline from platform links */
         .platform-link {
-            text-decoration: none !important; /* Using !important to override any existing styles */
-            border-bottom: none !important;
+            text-decoration: none;
+            border-bottom: none;
         }
 
-        /* Remove any after/before elements only from platform links */
+        .platform-link:hover {
+            text-decoration: none;
+        }
+
+        /* Remove any after/before elements that might be used for underline effects */
         .platform-link:after,
         .platform-link:before {
-            display: none !important;
-        }
-            /* Or whatever your original link styling was */
+            display: none;
         }
     </style>
 
@@ -311,9 +313,9 @@
         </div>
         <!-- Leaderboard -->
          <div class="card">
-                <div class="card-header">
-                    <h2 class="card-title">Herta's Breakfast</h2>
-                </div>
+            <div class="card-header">
+                <h2 class="card-title">Breakfast</h2>
+            </div>
         <table class="p-datatable-table">
             <thead>
               <tr>
@@ -327,7 +329,7 @@
             </thead>
             <tbody>
               <tr>
-                <td><a href="player-url" target="_blank" class="player-link">t0级风堇lover</a></td>
+                <td><a href="player-url" target="_blank" class="underline">t0级风堇lover</a></td>
                 <td>
                   <div class="character-container">
                     <div class="character">
