@@ -105,20 +105,21 @@
             }
         }
 
-        /* Remove underline from platform links */
+        /* Remove player link styles since we're not using links anymore */
+        .player-name {
+            font-weight: 500;  /* Optional: if you want slightly bolder text */
+            color: inherit;    /* Uses the parent text color */
+        }
+
+        /* Keep platform link styles */
         .platform-link {
-            text-decoration: none;
-            border-bottom: none;
+            text-decoration: none !important;
+            border-bottom: none !important;
         }
 
-        .platform-link:hover {
-            text-decoration: none;
-        }
-
-        /* Remove any after/before elements that might be used for underline effects */
         .platform-link:after,
         .platform-link:before {
-            display: none;
+            display: none !important;
         }
     </style>
 
@@ -329,7 +330,7 @@
             </thead>
             <tbody>
               <tr>
-                <td><a href="player-url" target="_blank" class="underline">t0级风堇lover</a></td>
+                <td><span class="player-name">t0级风堇lover</span></td>
                 <td>
                   <div class="character-container">
                     <div class="character">
