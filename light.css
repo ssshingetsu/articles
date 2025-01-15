@@ -174,7 +174,6 @@
 
             .avatar {
                 border-radius: 50%;            /* Makes the image circular */
-                margin-left: 12px;
                 height: 100px;
             }
             .highlight-text {
@@ -229,7 +228,38 @@
             gap: 15px;
             justify-items: center;
             margin-bottom: 20px;
-        }
+             }
+
+             a {  
+                position: relative;
+                color: #5a9bf5; /* A neutral blue that works well in both themes */
+                text-decoration: none;
+                font-weight: 600;
+                transition: color 0.3s ease;
+            }
+            
+            a::before {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 2px;
+                background: linear-gradient(to right, #4e76ea, #00aaff); /* Gradient that fits in both themes */
+                transform: scaleX(0);
+                transform-origin: bottom right;
+                transition: transform 0.3s ease-in-out;
+            }
+            
+            a:hover::before {
+                transform: scaleX(1);
+                transform-origin: bottom left;
+            }
+            
+            a:hover {
+                color: #3d8edc; /* A slightly darker shade of blue on hover */
+            }
+            
              @keyframes gradient-shift {
                 0% { background-position: 0% 50%; }
                 50% { background-position: 100% 50%; }
