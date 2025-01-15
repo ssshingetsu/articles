@@ -1,11 +1,11 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="favicon.png" type="image/png">
     <title>Shingetsu's Kitchen</title>
     <link id="theme" rel="stylesheet" href="light.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         #theme-switcher {
             position: fixed;
@@ -52,6 +52,73 @@
             #theme-switcher {
                 transition: none;
             }
+        }
+
+        .platform-link {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .platform-link i {
+            font-size: 24px;
+            margin-left: 24px;
+        }
+
+        [data-theme="light"] .platform-link:hover {
+            color: #00a1d6;  /* Bilibili blue */
+        }
+
+        [data-theme="dark"] .platform-link:hover {
+            color: #00b5e5;  /* Bilibili blue (slightly brighter for dark theme) */
+        }
+
+        .logo-yt, .logo-bili {
+            display: none;
+        }
+
+        /* Badge style for S0/R1 span indicators */
+        .character span, .weapon span {
+            position: absolute;
+            bottom: -4px;
+            right: -4px;
+            background: rgba(0, 0, 0, 0.6);  /* Dark transparent background */
+            color: white;
+            font-size: 0.75rem;
+            padding: 0.125rem 0.375rem;
+            border-radius: 9999px;
+            font-weight: 500;
+            z-index: 1;
+            backdrop-filter: blur(2px);  /* Optional: adds slight blur effect */
+        }
+
+        /* Make sure parent elements have relative positioning */
+        .character, .weapon {
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Light mode version if needed */
+        @media (prefers-color-scheme: light) {
+            .character span, .weapon span {
+                background: rgba(0, 0, 0, 0.5);  /* Slightly less dark for light mode */
+            }
+        }
+
+        /* Remove underline from platform links */
+        .platform-link {
+            text-decoration: none;
+            border-bottom: none;
+        }
+
+        .platform-link:hover {
+            text-decoration: none;
+        }
+
+        /* Remove any after/before elements that might be used for underline effects */
+        .platform-link:after,
+        .platform-link:before {
+            display: none;
         }
     </style>
 
@@ -210,43 +277,6 @@
             </div>
         </div>
 
-        <!-- Teammates 
-        <div class="card">
-            <div class="card-header">
-                <h2 class="card-title">Recommend Team</h2>
-            </div>
-            <div class="card-content">
-                <div class="avatar-group">
-                    <img src="https://raw.githubusercontent.com/Mar-7th/StarRailRes/refs/heads/master/icon/avatar/1401.png" class="avatar" />
-                    <img src="https://raw.githubusercontent.com/Mar-7th/StarRailRes/refs/heads/master/icon/avatar/1013.png" class="avatar" />
-                    <img src="https://raw.githubusercontent.com/Mar-7th/StarRailRes/refs/heads/master/icon/avatar/1106.png" class="avatar" />
-                    <img src="https://raw.githubusercontent.com/Mar-7th/StarRailRes/refs/heads/master/icon/avatar/8008.png" class="avatar" />
-                </div>
-        
-                <div class="card-header">
-                    <h2 class="card-title">Sustains</h2>
-                </div>
-                <div class="avatar-group">
-                    <img src="https://raw.githubusercontent.com/Mar-7th/StarRailRes/refs/heads/master/icon/avatar/1217.png" class="avatar" />
-                    <img src="https://raw.githubusercontent.com/Mar-7th/StarRailRes/refs/heads/master/icon/avatar/1222.png" class="avatar" />
-                    <img src="https://raw.githubusercontent.com/Mar-7th/StarRailRes/refs/heads/master/icon/avatar/1301.png" class="avatar" />
-                    <img src="https://raw.githubusercontent.com/Mar-7th/StarRailRes/refs/heads/master/icon/avatar/1304.png" class="avatar" />
-                </div>
-                <div class="card-header">
-                    <h2 class="card-title">AV Cheatcode</h2>
-                </div>
-                <div class="avatar-group">
-                    <img src="https://raw.githubusercontent.com/Mar-7th/StarRailRes/refs/heads/master/icon/avatar/1309.png" class="avatar" />
-                </div>
-                <div class="card-header">
-                    <h2 class="card-title">1T Eagle</h2>
-                </div>
-                <div class="avatar-group">
-                    <img src="https://raw.githubusercontent.com/Mar-7th/StarRailRes/refs/heads/master/icon/avatar/1103.png" class="avatar" />
-                </div>
-            </div>
-        </div> -->
-
         <!-- Future Characters -->
         <div class="card">
             <div class="card-header">
@@ -281,7 +311,137 @@
                 </div>
             </div>
         </div>
+        <!-- Leaderboard -->
+         <div class="card">
+        <center><h2>Herta's Breakfast</h2></center>
+        <table class="p-datatable-table">
+            <thead>
+              <tr>
+                <th>Player</th>
+                <th>Team</th>
+                <th>Lightcones</th>
+                <th>Boss</th>
+                <th>Cost</th>
+                <th>Showcase</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><a href="player-url" target="_blank" class="underline">t0级风堇lover</a></td>
+                <td>
+                  <div class="character-container">
+                    <div class="character">
+                        <img alt="THerta" src="https://homdgcat.wiki/images/avataricon/avatar/1401.png" title="The Herta">
+                        <span>E0</span>
+                      </div>
+                    <div class="character">
+                      <img alt="Tribbie" src="https://homdgcat.wiki/images/avataricon/avatar/1403.png" title="Tribbie">
+                      <span>E0</span>
+                    </div>
+                    <div class="character">
+                        <img alt="Herta" src="https://homdgcat.wiki/images/avataricon/avatar/1013.png" title="Herta">
+                        <span>E6</span>
+                      </div>
+                      <div class="character">
+                        <img alt="Herta" src="https://homdgcat.wiki/images/avataricon/avatar/8008.png" title="RMC">
+                        <span>E6</span>
+                      </div>
+                    <!-- Repeat for other characters -->
+                  </div>
+                </td>
+                <td>
+                  <div class="weapon-container">
+                    <div class="weapon">
+                      <img alt="Weapon 1" src="https://homdgcat.wiki/images/lightconemediumicon/21034.png" title="Today is Another Peaceful Day">
+                      <span>S5</span>
+                    </div>
+                    <div class="weapon">
+                        <img alt="Weapon 2" src="https://homdgcat.wiki/images/lightconemediumicon/21046.png" title="Poised to Bloom">
+                        <span>S5</span>
+                      </div>
+                      <div class="weapon">
+                        <img alt="Weapon 1" src="https://homdgcat.wiki/images/lightconemediumicon/21034.png" title="Today is Another Peaceful Day">
+                        <span>S5</span>
+                      </div>
+                      <div class="weapon">
+                        <img alt="Weapon 4" src="https://homdgcat.wiki/images/lightconemediumicon/21050.png" title="Victory in A Blink">
+                        <span>S5</span>
+                      </div>    
+                    <!-- Repeat for other weapons -->
+                  </div>
+                </td>
+                <td>
+                  <div class="boss">
+                    <img alt="Flame Reaver of the Deepest Dark" src="https://homdgcat.wiki/images/monsterfigure/Monster_4034010.png" title="Flame Reaver of the Deepest Dark">
+                    </div>
+                </td>
+                <td>
+                  <div class="time">
+                    2 Cost
+                    <!-- Optional mobile note 
+                    <span class="mobile-note">3 Eagle</span>-->
+                  </div>
+                </td>
+                <td>
+                  <a href="https://www.bilibili.com/video/BV1QmcheNE25/" target="_blank" class="platform-link">
+                    <i class="fa-brands fa-bilibili"></i>
+                  </a>
+                </td>
+              </tr>
+              <!-- Repeat for other entries -->
+            </tbody>
+          </table></div>
+          
+          <style>
+          .p-datatable-table {
+            width: 100%;
+            border-collapse: collapse;
+          }
+          
+          .character-container, .weapon-container {
+            display: flex;
+            gap: 8px;
+          }
+          
+          .character, .weapon, .boss {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+          }
+          
+          .character img, .weapon img {
+            width: 40px;
+            height: 40px;
+          }
 
+          .character img{border-radius: 100%;}
+
+          .boss img {
+            width: 80px;
+            height: 80px;
+          }
+          
+          .character span, .weapon span, .boss span {
+            font-size: 12px;
+          }
+          
+          .time {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+          }
+          
+          .mobile-note {
+            font-size: 12px;
+            color: #666;
+          }
+          
+          .logo-yt, .logo-bili {
+            display: none;
+          }
+          
+          </style>
         <!-- Enemy Weaknesses -->
         <div class="card">
             <div class="card-header">
