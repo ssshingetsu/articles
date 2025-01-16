@@ -121,6 +121,49 @@
         .platform-link:before {
             display: none !important;
         }
+
+        .glow-arrow {
+            --glow-color: 124, 58, 237;       /* Base violet color in RGB */
+            --glow-color-bright: 167, 139, 250; /* Brighter violet in RGB */
+            font-size: 32px;  /* Increased size */
+            animation: magicGlow 2s ease-in-out infinite;
+            transition: all 0.3s ease;
+            color: rgba(var(--glow-color), 0.9);
+            text-shadow: 0 0 10px rgba(var(--glow-color), 0.3);
+            position: relative;
+            filter: brightness(1.2);
+        }
+
+        .glow-arrow:hover {
+            transform: scale(1.15);
+            filter: brightness(1.4);
+        }
+
+        @keyframes magicGlow {
+            0%, 100% {
+                text-shadow: 
+                    0 0 15px rgba(var(--glow-color), 0.5),
+                    0 0 25px rgba(var(--glow-color), 0.2),
+                    0 0 35px rgba(var(--glow-color-bright), 0.1);
+            }
+            50% {
+                text-shadow: 
+                    0 0 20px rgba(var(--glow-color), 0.7),
+                    0 0 35px rgba(var(--glow-color), 0.4),
+                    0 0 45px rgba(var(--glow-color-bright), 0.2),
+                    0 0 60px rgba(var(--glow-color-bright), 0.1);
+            }
+        }
+
+        [data-theme="dark"] .glow-arrow {
+            --glow-color: 167, 139, 250;      /* Brighter violet for dark theme */
+            --glow-color-bright: 199, 181, 255; /* Even brighter violet */
+            filter: brightness(1.3);
+        }
+
+        [data-theme="dark"] .glow-arrow:hover {
+            filter: brightness(1.5);
+        }
     </style>
 
     <button id="theme-switcher" aria-label="Switch theme">
@@ -277,6 +320,25 @@
                 </div>
             </div>
         </div>
+        <!-- Investment Recommendation -->
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title">Investment Recommendation</h2>
+            </div>
+            <div class="card-content">
+                <p>
+                    If you're looking for a long-term investment, I recommend investing in this order: E1 -> E2 -> S1 </p>
+                    <center>
+                    <img src="https://api.hakush.in/hsr/UI/rank/_dependencies/textures/1401/1401_Rank_1.webp" alt="Herta" style="width: 256px;">
+                    <i class="fa-solid fa-arrow-right glow-arrow" style="margin: 120px 20px 0; font-size: 24px; vertical-align: top;"></i>
+                    <img src="https://api.hakush.in/hsr/UI/rank/_dependencies/textures/1401/1401_Rank_2.webp" alt="Herta" style="width: 256px;">
+                    <i class="fa-solid fa-arrow-right glow-arrow" style="margin: 120px 20px 0; font-size: 24px; vertical-align: top;"></i>
+                    <img src="https://homdgcat.wiki/images/lightconemediumicon/23037.png" alt="Herta" style="height: 256px;">
+                </center>
+                
+            </div>
+        </div>
+
 
         <!-- Future Characters -->
         <div class="card">
@@ -334,19 +396,19 @@
                 <td>
                   <div class="character-container">
                     <div class="character">
-                        <img alt="THerta" src="resources/avataricon/avatar/1401.png" title="The Herta">
+                        <img alt="THerta" src="https://homdgcat.wiki/images/avataricon/avatar/1401.png" title="The Herta">
                         <span>E0</span>
                       </div>
                     <div class="character">
-                      <img alt="Tribbie" src="resources/avataricon/avatar/1403.png" title="Tribbie">
+                      <img alt="Tribbie" src="https://homdgcat.wiki/images/avataricon/avatar/1403.png" title="Tribbie">
                       <span>E0</span>
                     </div>
                     <div class="character">
-                        <img alt="Herta" src="resources/avataricon/avatar/1013.png" title="Herta">
+                        <img alt="Herta" src="https://homdgcat.wiki/images/avataricon/avatar/1013.png" title="Herta">
                         <span>E6</span>
                       </div>
                       <div class="character">
-                        <img alt="Herta" src="resources/avataricon/avatar/8008.png" title="RMC">
+                        <img alt="Herta" src="https://homdgcat.wiki/images/avataricon/avatar/8008.png" title="RMC">
                         <span>E6</span>
                       </div>
                     <!-- Repeat for other characters -->
@@ -355,19 +417,19 @@
                 <td>
                   <div class="weapon-container">
                     <div class="weapon">
-                      <img alt="Weapon 1" src="resources/lightconemediumicon/21034.png" title="Today is Another Peaceful Day">
+                      <img alt="Weapon 1" src="https://homdgcat.wiki/images/lightconemediumicon/21034.png" title="Today is Another Peaceful Day">
                       <span>S5</span>
                     </div>
                     <div class="weapon">
-                        <img alt="Weapon 2" src="resources/lightconemediumicon/21046.png" title="Poised to Bloom">
+                        <img alt="Weapon 2" src="https://homdgcat.wiki/images/lightconemediumicon/21046.png" title="Poised to Bloom">
                         <span>S5</span>
                       </div>
                       <div class="weapon">
-                        <img alt="Weapon 1" src="resources/lightconemediumicon/21040.png" title="The Day Cosmos Fell">
+                        <img alt="Weapon 1" src="https://homdgcat.wiki/images/lightconemediumicon/21040.png" title="The Day Cosmos Fell">
                         <span>S5</span>
                       </div>
                       <div class="weapon">
-                        <img alt="Weapon 4" src="resources/lightconemediumicon/21050.png" title="Victory in A Blink">
+                        <img alt="Weapon 4" src="https://homdgcat.wiki/images/lightconemediumicon/21050.png" title="Victory in A Blink">
                         <span>S5</span>
                       </div>    
                     <!-- Repeat for other weapons -->
@@ -375,7 +437,7 @@
                 </td>
                 <td>
                   <div class="boss">
-                    <img alt="Flame Reaver of the Deepest Dark" src="resources/monsterfigure/Monster_4034010.png" title="Flame Reaver of the Deepest Dark">
+                    <img alt="Flame Reaver of the Deepest Dark" src="https://homdgcat.wiki/images/monsterfigure/Monster_4034010.png" title="Flame Reaver of the Deepest Dark">
                     </div>
                 </td>
                 <td>
@@ -397,19 +459,19 @@
                 <td>
                   <div class="character-container">
                     <div class="character">
-                        <img alt="THerta" src="resources/avataricon/avatar/1401.png" title="The Herta">
+                        <img alt="THerta" src="https://homdgcat.wiki/images/avataricon/avatar/1401.png" title="The Herta">
                         <span>E0</span>
                       </div>
                     <div class="character">
-                      <img alt="Pela" src="resources/avataricon/avatar/1106.png" title="Pela">
+                      <img alt="Pela" src="https://homdgcat.wiki/images/avataricon/avatar/1106.png" title="Pela">
                       <span>E6</span>
                     </div>
                     <div class="character">
-                        <img alt="Herta" src="resources/avataricon/avatar/1103.png" title="Serval">
+                        <img alt="Herta" src="https://homdgcat.wiki/images/avataricon/avatar/1103.png" title="Serval">
                         <span>E6</span>
                       </div>
                       <div class="character">
-                        <img alt="Herta" src="resources/avataricon/avatar/8008.png" title="RMC">
+                        <img alt="Herta" src="https://homdgcat.wiki/images/avataricon/avatar/8008.png" title="RMC">
                         <span>E6</span>
                       </div>
                     <!-- Repeat for other characters -->
@@ -418,19 +480,19 @@
                 <td>
                   <div class="weapon-container">
                     <div class="weapon">
-                      <img alt="Weapon 1" src="resources/lightconemediumicon/21034.png" title="Today is Another Peaceful Day">
+                      <img alt="Weapon 1" src="https://homdgcat.wiki/images/lightconemediumicon/21034.png" title="Today is Another Peaceful Day">
                       <span>S5</span>
                     </div>
                     <div class="weapon">
-                        <img alt="Weapon 2" src="resources/lightconemediumicon/21015.png" title="Resolution Shines As Pearls of Sweat">
+                        <img alt="Weapon 2" src="https://homdgcat.wiki/images/lightconemediumicon/21015.png" title="Resolution Shines As Pearls of Sweat">
                         <span>S5</span>
                       </div>
                       <div class="weapon">
-                        <img alt="Weapon 3" src="resources/lightconemediumicon/21013.png" title="Make the World Clamor">
+                        <img alt="Weapon 3" src="https://homdgcat.wiki/images/lightconemediumicon/21013.png" title="Make the World Clamor">
                         <span>S5</span>
                       </div>
                       <div class="weapon">
-                        <img alt="Weapon 4" src="resources/lightconemediumicon/21050.png" title="Victory in A Blink">
+                        <img alt="Weapon 4" src="https://homdgcat.wiki/images/lightconemediumicon/21050.png" title="Victory in A Blink">
                         <span>S5</span>
                       </div>    
                     <!-- Repeat for other weapons -->
@@ -438,7 +500,7 @@
                 </td>
                 <td>
                   <div class="boss">
-                    <img alt="The Giver, Master of Legions, Lance of Fury" src="resources/monsterfigure/Monster_4014020.png" title="The Giver, Master of Legions, Lance of Fury">
+                    <img alt="The Giver, Master of Legions, Lance of Fury" src="https://homdgcat.wiki/images/monsterfigure/Monster_4014020.png" title="The Giver, Master of Legions, Lance of Fury">
                     </div>
                 </td>
                 <td>
@@ -460,19 +522,19 @@
                 <td>
                   <div class="character-container">
                     <div class="character">
-                        <img alt="THerta" src="resources/avataricon/avatar/1401.png" title="The Herta">
+                        <img alt="THerta" src="https://homdgcat.wiki/images/avataricon/avatar/1401.png" title="The Herta">
                         <span>E0</span>
                       </div>
                     <div class="character">
-                      <img alt="Pela" src="resources/avataricon/avatar/1106.png" title="Pela">
+                      <img alt="Pela" src="https://homdgcat.wiki/images/avataricon/avatar/1106.png" title="Pela">
                       <span>E6</span>
                     </div>
                     <div class="character">
-                        <img alt="Herta" src="resources/avataricon/avatar/1013.png" title="Herta">
+                        <img alt="Herta" src="https://homdgcat.wiki/images/avataricon/avatar/1013.png" title="Herta">
                         <span>E6</span>
                       </div>
                       <div class="character">
-                        <img alt="Herta" src="resources/avataricon/avatar/8008.png" title="RMC">
+                        <img alt="Herta" src="https://homdgcat.wiki/images/avataricon/avatar/8008.png" title="RMC">
                         <span>E6</span>
                       </div>
                     <!-- Repeat for other characters -->
@@ -481,19 +543,19 @@
                 <td>
                   <div class="weapon-container">
                     <div class="weapon">
-                      <img alt="Weapon 1" src="resources/lightconemediumicon/21034.png" title="Today is Another Peaceful Day">
+                      <img alt="Weapon 1" src="https://homdgcat.wiki/images/lightconemediumicon/21034.png" title="Today is Another Peaceful Day">
                       <span>S5</span>
                     </div>
                     <div class="weapon">
-                        <img alt="Weapon 2" src="resources/lightconemediumicon/21015.png" title="Resolution Shines As Pearls of Sweat">
+                        <img alt="Weapon 2" src="https://homdgcat.wiki/images/lightconemediumicon/21015.png" title="Resolution Shines As Pearls of Sweat">
                         <span>S5</span>
                       </div>
                       <div class="weapon">
-                        <img alt="Weapon 3" src="resources/lightconemediumicon/21020.png" title="Genius Repose">
+                        <img alt="Weapon 3" src="https://homdgcat.wiki/images/lightconemediumicon/21020.png" title="Genius Repose">
                         <span>S5</span>
                       </div>
                       <div class="weapon">
-                        <img alt="Weapon 4" src="resources/lightconemediumicon/21050.png" title="Victory in A Blink">
+                        <img alt="Weapon 4" src="https://homdgcat.wiki/images/lightconemediumicon/21050.png" title="Victory in A Blink">
                         <span>S5</span>
                       </div>    
                     <!-- Repeat for other weapons -->
@@ -501,7 +563,7 @@
                 </td>
                 <td>
                   <div class="boss">
-                    <img alt="True Sting" src="resources/monsterfigure/Monster_8024010.png" title="True Sting">
+                    <img alt="True Sting" src="https://homdgcat.wiki/images/monsterfigure/Monster_8024010.png" title="True Sting">
                     </div>
                 </td>
                 <td>
