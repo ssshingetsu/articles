@@ -138,7 +138,7 @@
         const sunIcon = themeSwitcher.querySelector(".sun-icon");
         const moonIcon = themeSwitcher.querySelector(".moon-icon");
 
-        const savedTheme = localStorage.getItem("theme") || "light";
+        const savedTheme = localStorage.getItem("theme") || "dark";
         themeLink.setAttribute("href", savedTheme === "dark" ? "dark.css" : "light.css");
         document.documentElement.setAttribute("data-theme", savedTheme);
         
