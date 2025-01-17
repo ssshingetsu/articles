@@ -1,0 +1,743 @@
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shingetsu's Kitchen</title>
+    <link id="theme" rel="stylesheet" href="light.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        #theme-switcher {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 2px solid #ddd;
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+            padding: 0;
+        }
+
+        #theme-switcher:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        #theme-switcher svg {
+            width: 24px;
+            height: 24px;
+            fill: #4a5568;
+            transition: fill 0.3s ease;
+        }
+
+        [data-theme="dark"] #theme-switcher {
+            background: rgba(30, 30, 30, 0.9);
+            border-color: #444;
+        }
+
+        [data-theme="dark"] #theme-switcher svg {
+            fill: #e2e8f0;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            #theme-switcher {
+                transition: none;
+            }
+        }
+
+        .platform-link {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .platform-link i {
+            font-size: 24px;
+            margin-left: 24px;
+        }
+
+        [data-theme="light"] .platform-link:hover {
+            color: #00a1d6;  /* Bilibili blue */
+        }
+
+        [data-theme="dark"] .platform-link:hover {
+            color: #00b5e5;  /* Bilibili blue (slightly brighter for dark theme) */
+        }
+
+        .logo-yt, .logo-bili {
+            display: none;
+        }
+
+        /* Badge style for S0/R1 span indicators */
+        .character span, .weapon span {
+            position: absolute;
+            bottom: -4px;
+            right: -4px;
+            background: rgba(0, 0, 0, 0.6);  /* Dark transparent background */
+            color: white;
+            font-size: 0.75rem;
+            padding: 0.125rem 0.375rem;
+            border-radius: 9999px;
+            font-weight: 500;
+            z-index: 1;
+            backdrop-filter: blur(2px);  /* Optional: adds slight blur effect */
+        }
+
+        /* Make sure parent elements have relative positioning */
+        .character, .weapon {
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Light mode version if needed */
+        @media (prefers-color-scheme: light) {
+            .character span, .weapon span {
+                background: rgba(0, 0, 0, 0.5);  /* Slightly less dark for light mode */
+            }
+        }
+
+        /* Remove player link styles since we're not using links anymore */
+        .player-name {
+            font-weight: 500;  /* Optional: if you want slightly bolder text */
+            color: inherit;    /* Uses the parent text color */
+        }
+
+        /* Keep platform link styles */
+        .platform-link {
+            text-decoration: none !important;
+            border-bottom: none !important;
+        }
+
+        .platform-link:after,
+        .platform-link:before {
+            display: none !important;
+        }
+    </style>
+
+    <button id="theme-switcher" aria-label="Switch theme">
+        <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+        </svg>
+        <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="display: none;">
+            <path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+        </svg>
+    </button>
+
+    <script>
+        const themeLink = document.getElementById("theme");
+        const themeSwitcher = document.getElementById("theme-switcher");
+        const sunIcon = themeSwitcher.querySelector(".sun-icon");
+        const moonIcon = themeSwitcher.querySelector(".moon-icon");
+
+        const savedTheme = localStorage.getItem("theme") || "dark";
+        themeLink.setAttribute("href", savedTheme === "dark" ? "dark.css" : "light.css");
+        document.documentElement.setAttribute("data-theme", savedTheme);
+        
+        // Update initial icon state
+        if (savedTheme === "dark") {
+            sunIcon.style.display = "none";
+            moonIcon.style.display = "block";
+        } else {
+            sunIcon.style.display = "block";
+            moonIcon.style.display = "none";
+        }
+
+        themeSwitcher.addEventListener("click", () => {
+            const currentTheme = themeLink.getAttribute("href");
+            if (currentTheme === "light.css") {
+                themeLink.setAttribute("href", "dark.css");
+                document.documentElement.setAttribute("data-theme", "dark");
+                sunIcon.style.display = "none";
+                moonIcon.style.display = "block";
+                localStorage.setItem("theme", "dark");
+            } else {
+                themeLink.setAttribute("href", "light.css");
+                document.documentElement.setAttribute("data-theme", "light");
+                sunIcon.style.display = "block";
+                moonIcon.style.display = "none";
+                localStorage.setItem("theme", "light");
+            }
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <img src="https://i.pinimg.com/736x/1c/b9/d4/1cb9d4133bfbf470f480e4dc90d3fb46.jpg" height="200px"/>
+        <img src="https://i.pinimg.com/736x/b3/69/07/b36907f65ce5ec1eaeaa5a8301620e01.jpg" height="200px"/>
+        <img src="https://i.pinimg.com/474x/43/9f/6f/439f6fe0f60bc2e892f844cf7583aefc.jpg" height="200px"/>
+        <img src="https://i.pinimg.com/736x/01/bd/df/01bddfa7c3ab83b3793b209948ba473d.jpg" height="200px"/>
+        <img src="https://i.pinimg.com/736x/c5/af/e1/c5afe12301b458a253423b197867794d.jpg" height="200px"/>
+        <h1>Shingetsu's Kitchen Report #1</h1>
+
+        <!-- Important Notes -->
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title">Important Notes</h2>
+            </div>
+            <div class="card-content space-y-4">
+                <p>
+                    If the developers stay consistent, future weaknesses will primarily focus on 
+                    <span class="text-highlight">Ice, Quantum, and Imaginary</span>, so you can filter monsters that have at least two of these weaknesses.
+                </p>
+                <div class="alert">
+                    For bosses and elite monsters, weaknesses separated by commas indicate those without the weakness in regular content but appear in 
+                    <span class="text-highlight">Simulated Universe: Swarm Disaster</span> or 
+                    <span class="text-highlight">Memory of Chaos</span>.
+                </div>
+                <p>
+                    For the last three types of monsters from Belobog, they do not summon minions, while the others either summon minions or are group-based by nature.
+                </p>
+                <p>
+                    If you're concerned about strength, you can just look at the skill multipliers, Eidolons, and the environment. I'll provide the data here; the rest is up to your own judgment.
+                </p>
+            </div>
+        </div>
+
+        <!-- Damage Multipliers -->
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title">Damage Multipliers</h2>
+            </div>
+            <div class="card-content">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Eidolons</th>
+                            <th>Single-target</th>
+                            <th>AoE (5 targets)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>No Eidolons (0星)</td>
+                            <td>952%</td>
+                            <td>2936%</td>
+                        </tr>
+                        <tr>
+                            <td>1 Eidolon (1星)</td>
+                            <td>1288%</td>
+                            <td>3944%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Buffs and Eidolon Increases Grid -->
+        <div class="grid grid-cols-2">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">Buffs & Bonuses</h2>
+                </div>
+                <div class="card-content">
+                    <ul class="list-disc">
+                        <li>80% ATK boost</li>
+                        <li>50% Damage boost</li>
+                        <li>60%/20%/25% Damage boosts (Weapon and Relics)</li>
+                        <li>80% Critical damage from self-buffs</li>
+                        <li>8%/12% Critical Rate (Relics and Light Cone)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">Eidolon Damage Increases</h2>
+                </div>
+                <div class="card-content">
+                    <div class="space-y-4">
+                        <div>
+                            <p class="bar-label">1 Eidolon: <span class="highlight-text">+30%</span></p>
+                            <div class="bar-chart">
+                                <div class="bar" style="width: 16.67%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="bar-label">2 Eidolons: <span class="highlight-text">+90%</span></p>
+                            <div class="bar-chart">
+                                <div class="bar" style="width: 50%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="bar-label">6 Eidolons: <span class="highlight-text">+180%</span></p>
+                            <div class="bar-chart">
+                                <div class="bar" style="width: 100%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Future Characters -->
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title">Future Characters</h2>
+            </div>
+            <div class="card-content">
+                <div class="grid grid-cols-3">
+                    <div class="char-card">
+                        <div class="char-name">Tribbie (缇宝)</div>
+                        <div class="char-element">Quantum (量子)</div>
+                    </div>
+                    <div class="char-card">
+                        <div class="char-name">Castorice (瑕蝶)</div>
+                        <div class="char-element">Quantum (量子)</div>
+                    </div>
+                    <div class="char-card">
+                        <div class="char-name">Herta (大黑塔)</div>
+                        <div class="char-element">Ice (冰)</div>
+                    </div>
+                    <div class="char-card">
+                        <div class="char-name">Anaxa (昔涟)</div>
+                        <div class="char-element">Ice (冰)</div>
+                    </div>
+                    <div class="char-card">
+                        <div class="char-name">Mydei (万敌)</div>
+                        <div class="char-element">Imaginary (虚数)</div>
+                    </div>
+                    <div class="char-card">
+                        <div class="char-name">Phainon (白厄)</div>
+                        <div class="char-element">Imaginary (虚数)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Leaderboard -->
+         <div class="card">
+            <div class="card-header">
+                <h2 class="card-title">Showcases</h2>
+            </div>
+        <table class="p-datatable-table">
+            <thead>
+              <tr>
+                <th>Notes</th>
+                <th>Team</th>
+                <th>Lightcones</th>
+                <th>Boss</th>
+                <th>Cost</th>
+                <th>Showcase</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="player-name">3.0.51</span></td>
+                <td>
+                  <div class="character-container">
+                    <div class="character">
+                        <img alt="THerta" src="/images/avataricon/avatar/1401.png" title="The Herta">
+                        <span>E0</span>
+                      </div>
+                    <div class="character">
+                      <img alt="Tribbie" src="/images/avataricon/avatar/1403.png" title="Tribbie">
+                      <span>E0</span>
+                    </div>
+                    <div class="character">
+                        <img alt="Herta" src="/images/avataricon/avatar/1013.png" title="Herta">
+                        <span>E6</span>
+                      </div>
+                      <div class="character">
+                        <img alt="Herta" src="/images/avataricon/avatar/8008.png" title="RMC">
+                        <span>E6</span>
+                      </div>
+                    <!-- Repeat for other characters -->
+                  </div>
+                </td>
+                <td>
+                  <div class="weapon-container">
+                    <div class="weapon">
+                      <img alt="Weapon 1" src="/images/lightconemediumicon/21034.png" title="Today is Another Peaceful Day">
+                      <span>S5</span>
+                    </div>
+                    <div class="weapon">
+                        <img alt="Weapon 2" src="/images/lightconemediumicon/21046.png" title="Poised to Bloom">
+                        <span>S5</span>
+                      </div>
+                      <div class="weapon">
+                        <img alt="Weapon 1" src="/images/lightconemediumicon/21040.png" title="The Day Cosmos Fell">
+                        <span>S5</span>
+                      </div>
+                      <div class="weapon">
+                        <img alt="Weapon 4" src="/images/lightconemediumicon/21050.png" title="Victory in A Blink">
+                        <span>S5</span>
+                      </div>    
+                    <!-- Repeat for other weapons -->
+                  </div>
+                </td>
+                <td>
+                  <div class="boss">
+                    <img alt="Flame Reaver of the Deepest Dark" src="/images/monsterfigure/Monster_4034010.png" title="Flame Reaver of the Deepest Dark">
+                    </div>
+                </td>
+                <td>
+                  <div class="time">
+                    2 Cost
+                    <!-- Optional mobile note 
+                    <span class="mobile-note">3 Eagle</span>-->
+                  </div>
+                </td>
+                <td>
+                  <a href="https://www.bilibili.com/video/BV1QmcheNE25/" target="_blank" class="platform-link">
+                    <i class="fa-brands fa-bilibili"></i>
+                  </a>
+                </td>
+              </tr>
+
+              <tr>
+                <td><span class="player-name">MoC 3.0</span></td>
+                <td>
+                  <div class="character-container">
+                    <div class="character">
+                        <img alt="THerta" src="/images/avataricon/avatar/1401.png" title="The Herta">
+                        <span>E0</span>
+                      </div>
+                    <div class="character">
+                      <img alt="Pela" src="/images/avataricon/avatar/1106.png" title="Pela">
+                      <span>E6</span>
+                    </div>
+                    <div class="character">
+                        <img alt="Herta" src="/images/avataricon/avatar/1103.png" title="Serval">
+                        <span>E6</span>
+                      </div>
+                      <div class="character">
+                        <img alt="Herta" src="/images/avataricon/avatar/8008.png" title="RMC">
+                        <span>E6</span>
+                      </div>
+                    <!-- Repeat for other characters -->
+                  </div>
+                </td>
+                <td>
+                  <div class="weapon-container">
+                    <div class="weapon">
+                      <img alt="Weapon 1" src="/images/lightconemediumicon/21034.png" title="Today is Another Peaceful Day">
+                      <span>S5</span>
+                    </div>
+                    <div class="weapon">
+                        <img alt="Weapon 2" src="/images/lightconemediumicon/21015.png" title="Resolution Shines As Pearls of Sweat">
+                        <span>S5</span>
+                      </div>
+                      <div class="weapon">
+                        <img alt="Weapon 3" src="/images/lightconemediumicon/21013.png" title="Make the World Clamor">
+                        <span>S5</span>
+                      </div>
+                      <div class="weapon">
+                        <img alt="Weapon 4" src="/images/lightconemediumicon/21050.png" title="Victory in A Blink">
+                        <span>S5</span>
+                      </div>    
+                    <!-- Repeat for other weapons -->
+                  </div>
+                </td>
+                <td>
+                  <div class="boss">
+                    <img alt="The Giver, Master of Legions, Lance of Fury" src="/images/monsterfigure/Monster_4014020.png" title="The Giver, Master of Legions, Lance of Fury">
+                    </div>
+                </td>
+                <td>
+                  <div class="time">
+                    1 Cost
+                    <!-- Optional mobile note 
+                    <span class="mobile-note">3 Eagle</span>-->
+                  </div>
+                </td>
+                <td>
+                  <a href="https://www.bilibili.com/video/BV1MEcgevEEy" target="_blank" class="platform-link">
+                    <i class="fa-brands fa-bilibili"></i>
+                  </a>
+                </td>
+              </tr>
+
+              <tr>
+                <td><span class="player-name">MoC 2.7</span></td>
+                <td>
+                  <div class="character-container">
+                    <div class="character">
+                        <img alt="THerta" src="/images/avataricon/avatar/1401.png" title="The Herta">
+                        <span>E0</span>
+                      </div>
+                    <div class="character">
+                      <img alt="Pela" src="/images/avataricon/avatar/1106.png" title="Pela">
+                      <span>E6</span>
+                    </div>
+                    <div class="character">
+                        <img alt="Herta" src="/images/avataricon/avatar/1013.png" title="Herta">
+                        <span>E6</span>
+                      </div>
+                      <div class="character">
+                        <img alt="Herta" src="/images/avataricon/avatar/8008.png" title="RMC">
+                        <span>E6</span>
+                      </div>
+                    <!-- Repeat for other characters -->
+                  </div>
+                </td>
+                <td>
+                  <div class="weapon-container">
+                    <div class="weapon">
+                      <img alt="Weapon 1" src="/images/lightconemediumicon/21034.png" title="Today is Another Peaceful Day">
+                      <span>S5</span>
+                    </div>
+                    <div class="weapon">
+                        <img alt="Weapon 2" src="/images/lightconemediumicon/21015.png" title="Resolution Shines As Pearls of Sweat">
+                        <span>S5</span>
+                      </div>
+                      <div class="weapon">
+                        <img alt="Weapon 3" src="/images/lightconemediumicon/21020.png" title="Genius Repose">
+                        <span>S5</span>
+                      </div>
+                      <div class="weapon">
+                        <img alt="Weapon 4" src="/images/lightconemediumicon/21050.png" title="Victory in A Blink">
+                        <span>S5</span>
+                      </div>    
+                    <!-- Repeat for other weapons -->
+                  </div>
+                </td>
+                <td>
+                  <div class="boss">
+                    <img alt="True Sting" src="/images/monsterfigure/Monster_8024010.png" title="True Sting">
+                    </div>
+                </td>
+                <td>
+                  <div class="time">
+                    1 Cost
+                    <!-- Optional mobile note 
+                    <span class="mobile-note">3 Eagle</span>-->
+                  </div>
+                </td>
+                <td>
+                  <a href="https://www.bilibili.com/video/BV1qxcieREfa" target="_blank" class="platform-link">
+                    <i class="fa-brands fa-bilibili"></i>
+                  </a>
+                </td>
+              </tr>
+              <!-- Repeat for other entries -->
+            </tbody>
+          </table></div>
+          
+          <style>
+          .p-datatable-table {
+            width: 100%;
+            border-collapse: collapse;
+          }
+          
+          .character-container, .weapon-container {
+            display: flex;
+            gap: 8px;
+          }
+          
+          .character, .weapon, .boss {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+          }
+          
+          .character img, .weapon img {
+            width: 40px;
+            height: 40px;
+          }
+
+          .character img{border-radius: 100%;}
+
+          .boss img {
+            width: 70px;
+            height: 70px;
+          }
+          
+          .character span, .weapon span, .boss span {
+            font-size: 12px;
+          }
+          
+          .time {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+          }
+          
+          .mobile-note {
+            font-size: 12px;
+            color: #666;
+          }
+          
+          .logo-yt, .logo-bili {
+            display: none;
+          }
+          
+          </style>
+        <!-- Enemy Weaknesses -->
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title">Enemy Weaknesses</h2>
+            </div>
+            <div class="card-content">
+                <div class="space-y-4">
+                    <div class="enemy-item">
+                        <div class="enemy-name">True Sting (真蛰虫)</div>
+                        <div>
+                            <span class="weakness-tag">Ice</span>
+                            <span class="weakness-tag">Quantum</span>
+                            <span class="weakness-tag">Imaginary</span>
+                        </div>
+                    </div>
+                    <div class="enemy-item">
+                        <div class="enemy-name">Starcrusher Swarm (碎星王虫)</div>
+                        <div>
+                            <span class="weakness-tag">Ice</span>
+                            <span class="weakness-tag">Imaginary</span>
+                            <span class="weakness-tag">Physical</span>
+                        </div>
+                    </div>
+                    <div class="enemy-item">
+                        <div class="enemy-name">Sunday (神主日)</div>
+                        <div>
+                            <span class="weakness-tag">Imaginary</span>
+                            <span class="weakness-tag">Fire</span>
+                            <span class="weakness-tag">Lightning</span>
+                            <span class="weakness-tag">Quantum*</span>
+                        </div>
+                    </div>
+                    <div class="enemy-item">
+                        <div class="enemy-name">5 TV (五合一)</div>
+                        <div>
+                            <span class="weakness-tag">Ice</span>
+                            <span class="weakness-tag">Imaginary</span>
+                            <span class="weakness-tag">Fire</span>
+                            <span class="weakness-tag">Lightning</span>
+                        </div>
+                    </div>
+                    <div class="enemy-item">
+                        <div class="enemy-name">Argenti (银枝)</div>
+                        <div>
+                            <span class="weakness-tag">Ice</span>
+                            <span class="weakness-tag">Fire</span>
+                            <span class="weakness-tag">Physical</span>
+                            <span class="weakness-tag">Imaginary</span>
+                        </div>
+                    </div>
+                    <div class="enemy-item">
+                        <div class="enemy-name">IPC Leader (公司组长)</div>
+                        <div>
+                            <span class="weakness-tag">Ice</span>
+                            <span class="weakness-tag">Imaginary</span>
+                            <span class="weakness-tag">Fire</span>
+                        </div>
+                    </div>
+                    <div class="enemy-item">
+                        <div class="enemy-name">Abundant Ebon Deer (丰饶玄鹿)</div>
+                        <div>
+                            <span class="weakness-tag">Ice</span>
+                            <span class="weakness-tag">Imaginary</span>
+                            <span class="weakness-tag">Fire</span>
+                        </div>
+                    </div>
+                    <div class="enemy-item">
+                        <div class="enemy-name">Disciples of Sanctus Medicus: Shape Shifter (药王秘传炼形者)</div>
+                        <div>
+                            <span class="weakness-tag">Ice</span>
+                            <span class="weakness-tag">Imaginary</span>
+                            <span class="weakness-tag">Wind</span>
+                        </div>
+                    </div>
+                    <div class="enemy-item">
+                        <div class="enemy-name">Stormbringer (兴风者)</div>
+                        <div>
+                            <span class="weakness-tag">Ice</span>
+                            <span class="weakness-tag">Imaginary</span>
+                            <span class="weakness-tag">Fire</span>
+                        </div>
+                    </div>
+                    <div class="enemy-item">
+                        <div class="enemy-name">Silvermane Lieutenant (银鬃尉官)</div>
+                        <div>
+                            <span class="weakness-tag">Ice</span>
+                            <span class="weakness-tag">Quantum</span>
+                            <span class="weakness-tag">Physical</span>
+                        </div>
+                    </div>
+                    <div class="enemy-item">
+                        <div class="enemy-name">Outer Cosmic Flame (外宇宙之炎)</div>
+                        <div>
+                            <span class="weakness-tag">Ice</span>
+                            <span class="weakness-tag">Quantum</span>
+                            <span class="weakness-tag">Physical</span>
+                        </div>
+                    </div>
+                    <div class="enemy-item">
+                        <div class="enemy-name">Searing Prowler (炽燃徘徊者)</div>
+                        <div>
+                            <span class="weakness-tag">Ice</span>
+                            <span class="weakness-tag">Imaginary</span>
+                            <span class="weakness-tag">Lightning</span>
+                        </div>
+                    </div>
+                    <div class="enemy-item">
+                        <div class="enemy-name">Automaton Direwolf (机兵齿狼)</div>
+                        <div>
+                            <span class="weakness-tag">Ice</span>
+                            <span class="weakness-tag">Imaginary</span>
+                            <span class="weakness-tag">Lightning</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const tags = document.querySelectorAll('.weakness-tag, .char-element');
+    
+            tags.forEach(tag => {
+                const text = tag.textContent.trim().toLowerCase();
+                let iconURL = '';
+    
+                // Map text content to the correct image URL
+                switch(text) {
+                    case 'fire':
+                        iconURL = "https://api.hakush.in/hsr/UI/element/fire.webp";
+                        break;
+                    case 'lightning':
+                        iconURL = "https://api.hakush.in/hsr/UI/element/thunder.webp";
+                        break;
+                    case 'quantum':
+                        iconURL = "https://api.hakush.in/hsr/UI/element/quantum.webp";
+                        break;
+                    case 'physical':
+                        iconURL = "https://api.hakush.in/hsr/UI/element/physical.webp";
+                        break;
+                    case 'wind':
+                        iconURL = "https://api.hakush.in/hsr/UI/element/wind.webp";
+                        break;
+                    case 'imaginary':
+                        iconURL = "https://api.hakush.in/hsr/UI/element/imaginary.webp";
+                        break;
+                    case 'ice':
+                        iconURL = "https://api.hakush.in/hsr/UI/element/ice.webp";
+                        break;    
+                    default:
+                        return;
+                }
+    
+                if (iconURL) {
+                    const img = document.createElement('img');
+                    img.src = iconURL;
+                    img.alt = text;
+                    img.style.width = '16px';
+                    img.style.height = '16px';
+                    img.style.marginRight = '8px';
+                    img.style.verticalAlign = 'middle';
+    
+                    tag.insertBefore(img, tag.firstChild);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
