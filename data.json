@@ -1,0 +1,28 @@
+{
+    "categories": [
+        { "en": "The Herta", "zh": "大黑塔" },
+        { "en": "Aglaea", "zh": "阿格莱雅" },
+        { "en": "Feixiao", "zh": "飞霄" },
+        { "en": "Castorice", "zh": "遐蝶" },
+        { "en": "Firefly", "zh": "遐蝶" },
+        { "en": "Acheron", "zh": "黄泉" }
+    ],
+    "gameModes": [
+        { "en": "Memory of Chaos", "zh": "混沌回忆" },
+        { "en": "Pure Fiction", "zh": "虚构叙事" },
+        { "en": "Simulated Universe", "zh": "模拟宇宙" },
+        { "en": "Apocalyptic Shadow", "zh": "末日幻影" }
+    ],
+    "modifiers": [
+        { "en": "0 Cycle", "zh": "0T" },
+        { "en": "With Sustain", "zh": "带奶" },
+        { "en": "Both Side", "zh": "上下" },
+        { "en": "Auto-play", "zh": "自动" }
+    ],
+    "bosses": [
+        { "en": "Flame Reaver", "zh": "行者" },
+        { "en": "Kafka", "zh": "卡芙卡" },
+        { "en": "Nikador", "zh": "天谴之矛" },
+        { "en": "True Sting", "zh": "真蛰虫" }
+    ]
+}

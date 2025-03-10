@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HSR Run Search</title>
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #89f7fe, #66a6ff);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .container {
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      width: 100%;
+      max-width: 500px;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+    label {
+      font-size: 14px;
+      color: #555;
+    }
+    select, input {
+      padding: 8px 10px;
+      margin: 5px 0 15px 0;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+    select {
+      width: 100%;
+    }
+    .small-input {
+      width: 70px;
+      text-align: center;
+    }
+    .checkbox-group {
+      margin-bottom: 15px;
+    }
+    .checkbox-group label {
+      display: block;
+      margin-bottom: 5px;
+      cursor: pointer;
+    }
+    .checkbox-group input {
+      margin-right: 5px;
+    }
+    .output {
+      background: #f7f7f7;
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      text-align: center;
+      font-size: 16px;
+      color: #333;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .output:hover {
+      background: #eaeaea;
+    }
+    .row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>HSR Run Search</h2>
+
+    <div class="row">
+      <label for="eidolon">Eidolon:</label>
+      <input type="number" id="eidolon" min="0" class="small-input" placeholder="0" oninput="generateKeywords()">
+    </div>
+
+    <label for="category">Select Character:</label>
+    <select id="category" onchange="generateKeywords()"></select>
+
+    <label for="gameMode">Select Game Mode:</label>
+    <select id="gameMode" onchange="generateKeywords()">
+      <option value="">(Optional)</option>
+    </select>
+    
+    <label for="boss">Select Boss:</label>
+    <select id="boss" onchange="generateKeywords()">
+      <option value="">(Optional)</option>
+    </select>
+
+    <div class="row">
+      <label for="cost">Cost:</label>
+      <input type="number" id="cost" min="0" class="small-input" placeholder="0" oninput="generateKeywords()">
+    </div>
+
+    <label>Modifiers:</label>
+    <div id="modifiers" class="checkbox-group"></div>
+
+    <div class="output" id="output" onclick="copyToClipboard()">
+      Click to copy
+    </div>
+  </div>
+
+  <script>
+    let data = {};
+
+    async function loadData() {
+      try {
+        const response = await fetch("data.json");
+        data = await response.json();
+        populateOptions();
+      } catch (error) {
+        console.error("Error loading keyword data:", error);
+      }
+    }
+
+    function populateOptions() {
+      let categorySelect = document.getElementById("category");
+      let gameModeSelect = document.getElementById("gameMode");
+      let bossSelect = document.getElementById("boss");
+      let modifiersDiv = document.getElementById("modifiers");
+
+      categorySelect.innerHTML = data.categories
+        .map((cat) => `<option value="${cat.zh}">${cat.en}</option>`)
+        .join("");
+
+      gameModeSelect.innerHTML += data.gameModes
+        .map((mode) => `<option value="${mode.zh}">${mode.en}</option>`)
+        .join("");
+      
+      bossSelect.innerHTML += data.bosses
+        .map((boss) => `<option value="${boss.zh}">${boss.en}</option>`)
+        .join("");
+
+      modifiersDiv.innerHTML = data.modifiers
+        .map(
+          (mod) =>
+            `<label><input type="checkbox" value="${mod.zh}" onchange="generateKeywords()"> ${mod.en}</label>`
+        )
+        .join("");
+
+      generateKeywords();
+    }
+
+    function generateKeywords() {
+      let eidolon = document.getElementById("eidolon").value;
+      let category = document.getElementById("category").value;
+      let gameMode = document.getElementById("gameMode").value;
+      let boss = document.getElementById("boss").value;
+      let cost = document.getElementById("cost").value;
+      let checkboxes = document.querySelectorAll("input[type=checkbox]:checked");
+      let modifiers = Array.from(checkboxes)
+        .map((cb) => cb.value)
+        .join(" ");
+
+      let keyword = "";
+      if (eidolon) keyword += eidolon + "命 ";
+      keyword += category;
+      if (gameMode) keyword += " " + gameMode;
+      if (boss) keyword += " " + boss;
+      if (cost) keyword += " " + cost + "金";
+      if (modifiers) keyword += " " + modifiers;
+
+      document.getElementById("output").innerText = keyword || "Click to copy";
+    }
+
+    function copyToClipboard() {
+      let text = document.getElementById("output").innerText;
+      if (text && text !== "Click to copy") {
+        navigator.clipboard.writeText(text);
+        alert("Copied: " + text);
+      }
+    }
+
+    loadData();
+  </script>
+</body>
+</html>
+    
