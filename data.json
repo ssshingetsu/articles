@@ -7,6 +7,8 @@
         { "en": "Castorice", "zh": "遐蝶" },
         { "en": "Firefly", "zh": "遐蝶" },
         { "en": "Yunli", "zh": "云璃" },
+        { "en": "Qingque", "zh": "青雀" },
+        { "en": "Sunday", "zh": "星期日" },
         { "en": "Acheron", "zh": "黄泉" }
     ],
     "gameModes": [
@@ -19,6 +21,7 @@
         { "en": "0 Cycle", "zh": "0T" },
         { "en": "With Sustain", "zh": "带奶" },
         { "en": "Both Side", "zh": "上下" },
+        { "en": "No Injury", "zh": "无伤" },
         { "en": "Auto-play", "zh": "自动" }
     ],
     "bosses": [
