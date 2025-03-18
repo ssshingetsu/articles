@@ -1,13 +1,12 @@
-<!DOCTYPE html>
-
+    <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Shingetsu's Kitchen</title>
-<link href="light.css" id="theme" rel="stylesheet"/>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
-<style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shingetsu's Kitchen</title>
+    <link id="theme" rel="stylesheet" href="light.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
         #theme-switcher {
             position: fixed;
             top: 20px;
@@ -265,15 +264,17 @@
             }
         }
     </style>
-<button aria-label="Switch theme" id="theme-switcher">
-<svg class="sun-icon" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-<path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
-</svg>
-<svg class="moon-icon" style="display: none;" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-<path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
-</svg>
-</button>
-<script>
+
+    <button id="theme-switcher" aria-label="Switch theme">
+        <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+        </svg>
+        <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="display: none;">
+            <path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+        </svg>
+    </button>
+
+    <script>
         const themeLink = document.getElementById("theme");
         const themeSwitcher = document.getElementById("theme-switcher");
         const sunIcon = themeSwitcher.querySelector(".sun-icon");
@@ -311,370 +312,379 @@
     </script>
 </head>
 <body>
-<div class="container">
-<div class="header-images">
-<img alt="Header 1" src="images\736x\1c\b9\d4\1cb9d4133bfbf470f480e4dc90d3fb46.jpg"/>
-<img alt="Header 2" src="images\736x\b3\69\07\b36907f65ce5ec1eaeaa5a8301620e01.jpg"/>
-<img alt="Header 3" src="images\474x\43\9f\6f\439f6fe0f60bc2e892f844cf7583aefc.jpg"/>
-<img alt="Header 4" src="images\736x\01\bd\df\01bddfa7c3ab83b3793b209948ba473d.jpg"/>
-<img alt="Header 5" src="images\736x\c5\af\e1\c5afe12301b458a253423b197867794d.jpg"/>
-</div>
-<h1>Shingetsu's Kitchen Report #1</h1>
-<!-- Important Notes -->
-<div class="card">
-<div class="card-header">
-<h2 class="card-title">Important Notes</h2>
-</div>
-<div class="card-content space-y-4">
-<p>
+    <div class="container">
+        <div class="header-images">
+            <img src="https://i.pinimg.com/736x/1c/b9/d4/1cb9d4133bfbf470f480e4dc90d3fb46.jpg" alt="Header 1">
+            <img src="https://i.pinimg.com/736x/b3/69/07/b36907f65ce5ec1eaeaa5a8301620e01.jpg" alt="Header 2">
+            <img src="https://i.pinimg.com/474x/43/9f/6f/439f6fe0f60bc2e892f844cf7583aefc.jpg" alt="Header 3">
+            <img src="https://i.pinimg.com/736x/01/bd/df/01bddfa7c3ab83b3793b209948ba473d.jpg" alt="Header 4">
+            <img src="https://i.pinimg.com/736x/c5/af/e1/c5afe12301b458a253423b197867794d.jpg" alt="Header 5">
+        </div>
+        <h1>Shingetsu's Kitchen Report #1</h1>
+
+        <!-- Important Notes -->
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title">Important Notes</h2>
+            </div>
+            <div class="card-content space-y-4">
+                <p>
                     If the developers stay consistent, future weaknesses will primarily focus on 
                     <span class="text-highlight">Ice, Quantum, and Imaginary</span>, so you can filter monsters that have at least two of these weaknesses.
                 </p>
-<div class="alert">
+                <div class="alert">
                     For bosses and elite monsters, weaknesses separated by commas indicate those without the weakness in regular content but appear in 
                     <span class="text-highlight">Simulated Universe: Swarm Disaster</span> or 
                     <span class="text-highlight">Memory of Chaos</span>.
                 </div>
-<p>
+                <p>
                     For the last three types of monsters from Belobog, they do not summon minions, while the others either summon minions or are group-based by nature.
                 </p>
-<p>
+                <p>
                     If you're concerned about strength, you can just look at the skill multipliers, Eidolons, and the environment. I'll provide the data here; the rest is up to your own judgment.
                 </p>
-</div>
-</div>
-<!-- Damage Multipliers -->
-<div class="card">
-<div class="card-header">
-<h2 class="card-title">Damage Multipliers</h2>
-</div>
-<div class="card-content">
-<table>
-<thead>
-<tr>
-<th>Eidolons</th>
-<th>Single-target</th>
-<th>AoE (5 targets)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>No Eidolons (0星)</td>
-<td>952%</td>
-<td>2936%</td>
-</tr>
-<tr>
-<td>1 Eidolon (1星)</td>
-<td>1288%</td>
-<td>3944%</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<!-- Buffs and Eidolon Increases Grid -->
-<div class="grid grid-cols-2">
-<div class="card">
-<div class="card-header">
-<h2 class="card-title">Buffs &amp; Bonuses</h2>
-</div>
-<div class="card-content">
-<ul class="list-disc">
-<li>80% ATK boost</li>
-<li>50% Damage boost</li>
-<li>60%/20%/25% Damage boosts (Weapon and Relics)</li>
-<li>80% Critical damage from self-buffs</li>
-<li>8%/12% Critical Rate (Relics and Light Cone)</li>
-</ul>
-</div>
-</div>
-<div class="card">
-<div class="card-header">
-<h2 class="card-title">Damage spikes from E0S0 (S5 Battle Pass)</h2>
-</div>
-<div class="card-content">
-<div class="space-y-4">
-<div>
-<p class="bar-label">Signature LC: <span class="highlight-text">+12.56%</span></p>
-<div class="bar-chart">
-<div class="bar" style="width: 13.49%"></div>
-</div>
-</div>
-<div>
-<p class="bar-label">1 Eidolon: <span class="highlight-text">+35.29%</span></p>
-<div class="bar-chart">
-<div class="bar" style="width: 35%"></div>
-</div>
-</div>
-<div>
-<p class="bar-label">2 Eidolons: <span class="highlight-text">+67.1%</span></p>
-<div class="bar-chart">
-<div class="bar" style="width: 66.59%"></div>
-</div>
-</div>
-<div>
-<p class="bar-label">6 Eidolons + Signature: <span class="highlight-text">+98.89%</span></p>
-<div class="bar-chart">
-<div class="bar" style="width: 100%"></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<!-- Investment Recommendation -->
-<div class="card">
-<div class="card-header">
-<h2 class="card-title">Investment Recommendation</h2>
-</div>
-<div class="card-content">
-<p>If you're looking for a long-term investment, I recommend investing in this order: E1 -&gt; E2 -&gt; S1<br/> (Go for S1 first if no S5 BP)  </p>
-<div class="investment-container">
-<img src="https://api.hakush.in/hsr/UI/rank/_dependencies/textures/1401/1401_Rank_1.webp" alt="Herta">
-<i class="fa-solid fa-arrow-right glow-arrow"></i>
-<img src="https://api.hakush.in/hsr/UI/rank/_dependencies/textures/1401/1401_Rank_2.webp" alt="Herta">
-<i class="fa-solid fa-arrow-right glow-arrow"></i>
-<img alt="Herta" src="images\images\lightconemediumicon\23037.png"/>
-</div>
-</div>
-</div>
-<!-- Future Characters -->
-<div class="card">
-<div class="card-header">
-<h2 class="card-title">Future Characters</h2>
-</div>
-<div class="card-content">
-<div class="grid grid-cols-3">
-<div class="char-card">
-<div class="char-name">Tribbie (缇宝)</div>
-<div class="char-element">Quantum (量子)</div>
-</div>
-<div class="char-card">
-<div class="char-name">Castorice (瑕蝶)</div>
-<div class="char-element">Quantum (量子)</div>
-</div>
-<div class="char-card">
-<div class="char-name">Anaxa (昔涟)</div>
-<div class="char-element">Wind (风)</div>
-</div>
-<div class="char-card">
-<div class="char-name">Mydei (万敌)</div>
-<div class="char-element">Imaginary (虚数)</div>
-</div>
-<div class="char-card">
-<div class="char-name">Phainon (白厄)</div>
-<div class="char-element">Imaginary (虚数)</div>
-</div>
-</div>
-</div>
-</div>
-<!-- Leaderboard -->
-<div class="card">
-<div class="card-header">
-<h2 class="card-title">Showcases</h2>
-</div>
-<table class="p-datatable-table">
-<thead>
-<tr>
-<th>Notes</th>
-<th>Team</th>
-<th>Lightcones</th>
-<th>Boss</th>
-<th>Cost</th>
-<th>Showcase</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><span class="player-name">3.0.54</span></td>
-<td>
-<div class="character-container">
-<div class="character">
-<img alt="THerta" src="images\images\avataricon\avatar\1401.png" title="The Herta"/>
-<span>E0</span>
-</div>
-<div class="character">
-<img alt="Tribbie" src="images\images\avataricon\avatar\1403.png" title="Tribbie"/>
-<span>E0</span>
-</div>
-<div class="character">
-<img alt="Serval" src="https://homdgcat.wiki/images/avataricon/avatar/1103.png" title="Serval"/>
-<span>E6</span>
-</div>
-<div class="character">
-<img alt="Herta" src="images\images\avataricon\avatar\8008.png" title="RMC"/>
-<span>E6</span>
-</div>
-<!-- Repeat for other characters -->
-</div>
-</td>
-<td>
-<div class="weapon-container">
-<div class="weapon">
-<img alt="Weapon 1" src="images\images\lightconemediumicon\21034.png" title="Today is Another Peaceful Day"/>
-<span>S5</span>
-</div>
-<div class="weapon">
-<img alt="Weapon 2" src="https://homdgcat.wiki/images/lightconemediumicon/21018.png" title="Dance Dance Dance"/>
-<span>S5</span>
-</div>
-<div class="weapon">
-<img alt="Weapon 1" src="https://homdgcat.wiki/images/lightconemediumicon/20013.png" title="Passkey"/>
-<span>S5</span>
-</div>
-<div class="weapon">
-<img alt="Weapon 4" src="images\images\lightconemediumicon\21050.png" title="Victory in A Blink"/>
-<span>S5</span>
-</div>
-<!-- Repeat for other weapons -->
-</div>
-</td>
-<td>
-<div class="boss">
-<img alt="Flame Reaver of the Deepest Dark" src="images\images\monsterfigure\Monster_4034010.png" title="Flame Reaver of the Deepest Dark"/>
-</div>
-</td>
-<td>
-<div class="time">
+            </div>
+        </div>
+
+        <!-- Damage Multipliers -->
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title">Damage Multipliers</h2>
+            </div>
+            <div class="card-content">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Eidolons</th>
+                            <th>Single-target</th>
+                            <th>AoE (5 targets)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>No Eidolons (0星)</td>
+                            <td>952%</td>
+                            <td>2936%</td>
+                        </tr>
+                        <tr>
+                            <td>1 Eidolon (1星)</td>
+                            <td>1288%</td>
+                            <td>3944%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Buffs and Eidolon Increases Grid -->
+        <div class="grid grid-cols-2">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">Buffs & Bonuses</h2>
+                </div>
+                <div class="card-content">
+                    <ul class="list-disc">
+                        <li>80% ATK boost</li>
+                        <li>50% Damage boost</li>
+                        <li>60%/20%/25% Damage boosts (Weapon and Relics)</li>
+                        <li>80% Critical damage from self-buffs</li>
+                        <li>8%/12% Critical Rate (Relics and Light Cone)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">Damage spikes from E0S0 (S5 Battle Pass)</h2>
+                </div>
+                <div class="card-content">
+                    <div class="space-y-4">
+                        <div>
+                            <p class="bar-label">Signature LC: <span class="highlight-text">+11.87%</span></p>
+                            <div class="bar-chart">
+                                <div class="bar" style="width: 13.49%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="bar-label">1 Eidolon: <span class="highlight-text">+24.6%</span></p>
+                            <div class="bar-chart">
+                                <div class="bar" style="width: 27.95%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="bar-label">2 Eidolons: <span class="highlight-text">+58.6%</span></p>
+                            <div class="bar-chart">
+                                <div class="bar" style="width: 66.59%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="bar-label">6 Eidolons: <span class="highlight-text">+88%</span></p>
+                            <div class="bar-chart">
+                                <div class="bar" style="width: 100%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Investment Recommendation -->
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title">Investment Recommendation</h2>
+            </div>
+            <div class="card-content">
+                <p>If you're looking for a long-term investment, I recommend investing in this order: E1 -> E2 -> S1<br> (Go for S1 first if no S5 BP)  </p>
+                <div class="investment-container">
+                    <img src="https://api.hakush.in/hsr/UI/rank/_dependencies/textures/1401/1401_Rank_1.webp" alt="Herta">
+                    <i class="fa-solid fa-arrow-right glow-arrow"></i>
+                    <img src="https://api.hakush.in/hsr/UI/rank/_dependencies/textures/1401/1401_Rank_2.webp" alt="Herta">
+                    <i class="fa-solid fa-arrow-right glow-arrow"></i>
+                    <img src="https://homdgcat.wiki/images/lightconemediumicon/23037.png" alt="Herta">
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Future Characters -->
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title">Future Characters</h2>
+            </div>
+            <div class="card-content">
+                <div class="grid grid-cols-3">
+                    <div class="char-card">
+                        <div class="char-name">Tribbie (缇宝)</div>
+                        <div class="char-element">Quantum (量子)</div>
+                    </div>
+                    <div class="char-card">
+                        <div class="char-name">Castorice (瑕蝶)</div>
+                        <div class="char-element">Quantum (量子)</div>
+                    </div>
+                    <div class="char-card">
+                        <div class="char-name">Anaxa (昔涟)</div>
+                        <div class="char-element">Imaginary (虚数)</div>
+                    </div>
+                    <div class="char-card">
+                        <div class="char-name">Mydei (万敌)</div>
+                        <div class="char-element">Imaginary (虚数)</div>
+                    </div>
+                    <div class="char-card">
+                        <div class="char-name">Phainon (白厄)</div>
+                        <div class="char-element">Imaginary (虚数)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Leaderboard -->
+         <div class="card">
+            <div class="card-header">
+                <h2 class="card-title">Showcases</h2>
+            </div>
+        <table class="p-datatable-table">
+            <thead>
+              <tr>
+                <th>Notes</th>
+                <th>Team</th>
+                <th>Lightcones</th>
+                <th>Boss</th>
+                <th>Cost</th>
+                <th>Showcase</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="player-name">3.0.51</span></td>
+                <td>
+                  <div class="character-container">
+                    <div class="character">
+                        <img alt="THerta" src="https://homdgcat.wiki/images/avataricon/avatar/1401.png" title="The Herta">
+                        <span>E0</span>
+                      </div>
+                    <div class="character">
+                      <img alt="Tribbie" src="https://homdgcat.wiki/images/avataricon/avatar/1403.png" title="Tribbie">
+                      <span>E0</span>
+                    </div>
+                    <div class="character">
+                        <img alt="Herta" src="https://homdgcat.wiki/images/avataricon/avatar/1013.png" title="Herta">
+                        <span>E6</span>
+                      </div>
+                      <div class="character">
+                        <img alt="Herta" src="https://homdgcat.wiki/images/avataricon/avatar/8008.png" title="RMC">
+                        <span>E6</span>
+                      </div>
+                    <!-- Repeat for other characters -->
+                  </div>
+                </td>
+                <td>
+                  <div class="weapon-container">
+                    <div class="weapon">
+                      <img alt="Weapon 1" src="https://homdgcat.wiki/images/lightconemediumicon/21034.png" title="Today is Another Peaceful Day">
+                      <span>S5</span>
+                    </div>
+                    <div class="weapon">
+                        <img alt="Weapon 2" src="https://homdgcat.wiki/images/lightconemediumicon/21046.png" title="Poised to Bloom">
+                        <span>S5</span>
+                      </div>
+                      <div class="weapon">
+                        <img alt="Weapon 1" src="https://homdgcat.wiki/images/lightconemediumicon/21040.png" title="The Day Cosmos Fell">
+                        <span>S5</span>
+                      </div>
+                      <div class="weapon">
+                        <img alt="Weapon 4" src="https://homdgcat.wiki/images/lightconemediumicon/21050.png" title="Victory in A Blink">
+                        <span>S5</span>
+                      </div>    
+                    <!-- Repeat for other weapons -->
+                  </div>
+                </td>
+                <td>
+                  <div class="boss">
+                    <img alt="Flame Reaver of the Deepest Dark" src="https://homdgcat.wiki/images/monsterfigure/Monster_4034010.png" title="Flame Reaver of the Deepest Dark">
+                    </div>
+                </td>
+                <td>
+                  <div class="time">
                     2 Cost
                     <!-- Optional mobile note 
                     <span class="mobile-note">3 Eagle</span>-->
-</div>
-</td>
-<td>
-<a class="platform-link" href="https://youtu.be/_D0eQClI1ek" target="_blank">
-<i class="fa-brands fa-youtube"></i>
-</a>
-</td>
-</tr>
-<tr>
-<td><span class="player-name">MoC 3.0</span></td>
-<td>
-<div class="character-container">
-<div class="character">
-<img alt="THerta" src="https://homdgcat.wiki/images/avataricon/avatar/1401.png" title="The Herta"/>
-<span>E0</span>
-</div>
-<div class="character">
-<img alt="Pela" src="images\images\avataricon\avatar\1106.png" title="Pela"/>
-<span>E6</span>
-</div>
-<div class="character">
-<img alt="Herta" src="images\images\avataricon\avatar\1103.png" title="Serval"/>
-<span>E6</span>
-</div>
-<div class="character">
-<img alt="Herta" src="https://homdgcat.wiki/images/avataricon/avatar/8008.png" title="RMC"/>
-<span>E6</span>
-</div>
-<!-- Repeat for other characters -->
-</div>
-</td>
-<td>
-<div class="weapon-container">
-<div class="weapon">
-<img alt="Weapon 1" src="https://homdgcat.wiki/images/lightconemediumicon/21034.png" title="Today is Another Peaceful Day"/>
-<span>S5</span>
-</div>
-<div class="weapon">
-<img alt="Weapon 2" src="images\images\lightconemediumicon\21015.png" title="Resolution Shines As Pearls of Sweat"/>
-<span>S5</span>
-</div>
-<div class="weapon">
-<img alt="Weapon 3" src="images\images\lightconemediumicon\21013.png" title="Make the World Clamor"/>
-<span>S5</span>
-</div>
-<div class="weapon">
-<img alt="Weapon 4" src="https://homdgcat.wiki/images/lightconemediumicon/21050.png" title="Victory in A Blink"/>
-<span>S5</span>
-</div>
-<!-- Repeat for other weapons -->
-</div>
-</td>
-<td>
-<div class="boss">
-<img alt="The Giver, Master of Legions, Lance of Fury" src="images\images\monsterfigure\Monster_4014020.png" title="The Giver, Master of Legions, Lance of Fury"/>
-</div>
-</td>
-<td>
-<div class="time">
+                  </div>
+                </td>
+                <td>
+                  <a href="https://www.bilibili.com/video/BV1QmcheNE25/" target="_blank" class="platform-link">
+                    <i class="fa-brands fa-bilibili"></i>
+                  </a>
+                </td>
+              </tr>
+
+              <tr>
+                <td><span class="player-name">MoC 3.0</span></td>
+                <td>
+                  <div class="character-container">
+                    <div class="character">
+                        <img alt="THerta" src="https://homdgcat.wiki/images/avataricon/avatar/1401.png" title="The Herta">
+                        <span>E0</span>
+                      </div>
+                    <div class="character">
+                      <img alt="Pela" src="https://homdgcat.wiki/images/avataricon/avatar/1106.png" title="Pela">
+                      <span>E6</span>
+                    </div>
+                    <div class="character">
+                        <img alt="Herta" src="https://homdgcat.wiki/images/avataricon/avatar/1103.png" title="Serval">
+                        <span>E6</span>
+                      </div>
+                      <div class="character">
+                        <img alt="Herta" src="https://homdgcat.wiki/images/avataricon/avatar/8008.png" title="RMC">
+                        <span>E6</span>
+                      </div>
+                    <!-- Repeat for other characters -->
+                  </div>
+                </td>
+                <td>
+                  <div class="weapon-container">
+                    <div class="weapon">
+                      <img alt="Weapon 1" src="https://homdgcat.wiki/images/lightconemediumicon/21034.png" title="Today is Another Peaceful Day">
+                      <span>S5</span>
+                    </div>
+                    <div class="weapon">
+                        <img alt="Weapon 2" src="https://homdgcat.wiki/images/lightconemediumicon/21015.png" title="Resolution Shines As Pearls of Sweat">
+                        <span>S5</span>
+                      </div>
+                      <div class="weapon">
+                        <img alt="Weapon 3" src="https://homdgcat.wiki/images/lightconemediumicon/21013.png" title="Make the World Clamor">
+                        <span>S5</span>
+                      </div>
+                      <div class="weapon">
+                        <img alt="Weapon 4" src="https://homdgcat.wiki/images/lightconemediumicon/21050.png" title="Victory in A Blink">
+                        <span>S5</span>
+                      </div>    
+                    <!-- Repeat for other weapons -->
+                  </div>
+                </td>
+                <td>
+                  <div class="boss">
+                    <img alt="The Giver, Master of Legions, Lance of Fury" src="https://homdgcat.wiki/images/monsterfigure/Monster_4014020.png" title="The Giver, Master of Legions, Lance of Fury">
+                    </div>
+                </td>
+                <td>
+                  <div class="time">
                     1 Cost
                     <!-- Optional mobile note 
                     <span class="mobile-note">3 Eagle</span>-->
-</div>
-</td>
-<td>
-<a class="platform-link" href="https://www.bilibili.com/video/BV1MEcgevEEy" target="_blank">
-<i class="fa-brands fa-bilibili"></i>
-</a>
-</td>
-</tr>
-<tr>
-<td><span class="player-name">MoC 2.7</span></td>
-<td>
-<div class="character-container">
-<div class="character">
-<img alt="THerta" src="https://homdgcat.wiki/images/avataricon/avatar/1401.png" title="The Herta"/>
-<span>E0</span>
-</div>
-<div class="character">
-<img alt="Pela" src="https://homdgcat.wiki/images/avataricon/avatar/1106.png" title="Pela"/>
-<span>E6</span>
-</div>
-<div class="character">
-<img alt="Herta" src="https://homdgcat.wiki/images/avataricon/avatar/1013.png" title="Herta"/>
-<span>E6</span>
-</div>
-<div class="character">
-<img alt="Herta" src="https://homdgcat.wiki/images/avataricon/avatar/8008.png" title="RMC"/>
-<span>E6</span>
-</div>
-<!-- Repeat for other characters -->
-</div>
-</td>
-<td>
-<div class="weapon-container">
-<div class="weapon">
-<img alt="Weapon 1" src="https://homdgcat.wiki/images/lightconemediumicon/21034.png" title="Today is Another Peaceful Day"/>
-<span>S5</span>
-</div>
-<div class="weapon">
-<img alt="Weapon 2" src="https://homdgcat.wiki/images/lightconemediumicon/21015.png" title="Resolution Shines As Pearls of Sweat"/>
-<span>S5</span>
-</div>
-<div class="weapon">
-<img alt="Weapon 3" src="images\images\lightconemediumicon\21020.png" title="Genius Repose"/>
-<span>S5</span>
-</div>
-<div class="weapon">
-<img alt="Weapon 4" src="https://homdgcat.wiki/images/lightconemediumicon/21050.png" title="Victory in A Blink"/>
-<span>S5</span>
-</div>
-<!-- Repeat for other weapons -->
-</div>
-</td>
-<td>
-<div class="boss">
-<img alt="True Sting" src="images\images\monsterfigure\Monster_8024010.png" title="True Sting"/>
-</div>
-</td>
-<td>
-<div class="time">
+                  </div>
+                </td>
+                <td>
+                  <a href="https://www.bilibili.com/video/BV1MEcgevEEy" target="_blank" class="platform-link">
+                    <i class="fa-brands fa-bilibili"></i>
+                  </a>
+                </td>
+              </tr>
+
+              <tr>
+                <td><span class="player-name">MoC 2.7</span></td>
+                <td>
+                  <div class="character-container">
+                    <div class="character">
+                        <img alt="THerta" src="https://homdgcat.wiki/images/avataricon/avatar/1401.png" title="The Herta">
+                        <span>E0</span>
+                      </div>
+                    <div class="character">
+                      <img alt="Pela" src="https://homdgcat.wiki/images/avataricon/avatar/1106.png" title="Pela">
+                      <span>E6</span>
+                    </div>
+                    <div class="character">
+                        <img alt="Herta" src="https://homdgcat.wiki/images/avataricon/avatar/1013.png" title="Herta">
+                        <span>E6</span>
+                      </div>
+                      <div class="character">
+                        <img alt="Herta" src="https://homdgcat.wiki/images/avataricon/avatar/8008.png" title="RMC">
+                        <span>E6</span>
+                      </div>
+                    <!-- Repeat for other characters -->
+                  </div>
+                </td>
+                <td>
+                  <div class="weapon-container">
+                    <div class="weapon">
+                      <img alt="Weapon 1" src="https://homdgcat.wiki/images/lightconemediumicon/21034.png" title="Today is Another Peaceful Day">
+                      <span>S5</span>
+                    </div>
+                    <div class="weapon">
+                        <img alt="Weapon 2" src="https://homdgcat.wiki/images/lightconemediumicon/21015.png" title="Resolution Shines As Pearls of Sweat">
+                        <span>S5</span>
+                      </div>
+                      <div class="weapon">
+                        <img alt="Weapon 3" src="https://homdgcat.wiki/images/lightconemediumicon/21020.png" title="Genius Repose">
+                        <span>S5</span>
+                      </div>
+                      <div class="weapon">
+                        <img alt="Weapon 4" src="https://homdgcat.wiki/images/lightconemediumicon/21050.png" title="Victory in A Blink">
+                        <span>S5</span>
+                      </div>    
+                    <!-- Repeat for other weapons -->
+                  </div>
+                </td>
+                <td>
+                  <div class="boss">
+                    <img alt="True Sting" src="https://homdgcat.wiki/images/monsterfigure/Monster_8024010.png" title="True Sting">
+                    </div>
+                </td>
+                <td>
+                  <div class="time">
                     1 Cost
                     <!-- Optional mobile note 
                     <span class="mobile-note">3 Eagle</span>-->
-</div>
-</td>
-<td>
-<a class="platform-link" href="https://www.bilibili.com/video/BV1qxcieREfa" target="_blank">
-<i class="fa-brands fa-bilibili"></i>
-</a>
-</td>
-</tr>
-<!-- Repeat for other entries -->
-</tbody>
-</table></div>
-<style>
+                  </div>
+                </td>
+                <td>
+                  <a href="https://www.bilibili.com/video/BV1qxcieREfa" target="_blank" class="platform-link">
+                    <i class="fa-brands fa-bilibili"></i>
+                  </a>
+                </td>
+              </tr>
+              <!-- Repeat for other entries -->
+            </tbody>
+          </table></div>
+          
+          <style>
           .p-datatable-table {
             width: 100%;
             border-collapse: collapse;
@@ -724,125 +734,126 @@
           }
           
           </style>
-<!-- Enemy Weaknesses -->
-<div class="card">
-<div class="card-header">
-<h2 class="card-title">Enemy Weaknesses</h2>
-</div>
-<div class="card-content">
-<div class="space-y-4">
-<div class="enemy-item">
-<div class="enemy-name">True Sting (真蛰虫)</div>
-<div>
-<span class="weakness-tag">Ice</span>
-<span class="weakness-tag">Quantum</span>
-<span class="weakness-tag">Imaginary</span>
-</div>
-</div>
-<div class="enemy-item">
-<div class="enemy-name">Starcrusher Swarm (碎星王虫)</div>
-<div>
-<span class="weakness-tag">Ice</span>
-<span class="weakness-tag">Imaginary</span>
-<span class="weakness-tag">Physical</span>
-</div>
-</div>
-<div class="enemy-item">
-<div class="enemy-name">Sunday (神主日)</div>
-<div>
-<span class="weakness-tag">Imaginary</span>
-<span class="weakness-tag">Fire</span>
-<span class="weakness-tag">Lightning</span>
-<span class="weakness-tag">Quantum*</span>
-</div>
-</div>
-<div class="enemy-item">
-<div class="enemy-name">5 TV (五合一)</div>
-<div>
-<span class="weakness-tag">Ice</span>
-<span class="weakness-tag">Imaginary</span>
-<span class="weakness-tag">Fire</span>
-<span class="weakness-tag">Lightning</span>
-</div>
-</div>
-<div class="enemy-item">
-<div class="enemy-name">Argenti (银枝)</div>
-<div>
-<span class="weakness-tag">Ice</span>
-<span class="weakness-tag">Fire</span>
-<span class="weakness-tag">Physical</span>
-<span class="weakness-tag">Imaginary</span>
-</div>
-</div>
-<div class="enemy-item">
-<div class="enemy-name">IPC Leader (公司组长)</div>
-<div>
-<span class="weakness-tag">Ice</span>
-<span class="weakness-tag">Imaginary</span>
-<span class="weakness-tag">Fire</span>
-</div>
-</div>
-<div class="enemy-item">
-<div class="enemy-name">Abundant Ebon Deer (丰饶玄鹿)</div>
-<div>
-<span class="weakness-tag">Ice</span>
-<span class="weakness-tag">Imaginary</span>
-<span class="weakness-tag">Fire</span>
-</div>
-</div>
-<div class="enemy-item">
-<div class="enemy-name">Disciples of Sanctus Medicus: Shape Shifter (药王秘传炼形者)</div>
-<div>
-<span class="weakness-tag">Ice</span>
-<span class="weakness-tag">Imaginary</span>
-<span class="weakness-tag">Wind</span>
-</div>
-</div>
-<div class="enemy-item">
-<div class="enemy-name">Stormbringer (兴风者)</div>
-<div>
-<span class="weakness-tag">Ice</span>
-<span class="weakness-tag">Imaginary</span>
-<span class="weakness-tag">Fire</span>
-</div>
-</div>
-<div class="enemy-item">
-<div class="enemy-name">Silvermane Lieutenant (银鬃尉官)</div>
-<div>
-<span class="weakness-tag">Ice</span>
-<span class="weakness-tag">Quantum</span>
-<span class="weakness-tag">Physical</span>
-</div>
-</div>
-<div class="enemy-item">
-<div class="enemy-name">Outer Cosmic Flame (外宇宙之炎)</div>
-<div>
-<span class="weakness-tag">Ice</span>
-<span class="weakness-tag">Quantum</span>
-<span class="weakness-tag">Physical</span>
-</div>
-</div>
-<div class="enemy-item">
-<div class="enemy-name">Searing Prowler (炽燃徘徊者)</div>
-<div>
-<span class="weakness-tag">Ice</span>
-<span class="weakness-tag">Imaginary</span>
-<span class="weakness-tag">Lightning</span>
-</div>
-</div>
-<div class="enemy-item">
-<div class="enemy-name">Automaton Direwolf (机兵齿狼)</div>
-<div>
-<span class="weakness-tag">Ice</span>
-<span class="weakness-tag">Imaginary</span>
-<span class="weakness-tag">Lightning</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<script>
+        <!-- Enemy Weaknesses -->
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title">Enemy Weaknesses</h2>
+            </div>
+            <div class="card-content">
+                <div class="space-y-4">
+                    <div class="enemy-item">
+                        <div class="enemy-name">True Sting (真蛰虫)</div>
+                        <div>
+                            <span class="weakness-tag">Ice</span>
+                            <span class="weakness-tag">Quantum</span>
+                            <span class="weakness-tag">Imaginary</span>
+                        </div>
+                    </div>
+                    <div class="enemy-item">
+                        <div class="enemy-name">Starcrusher Swarm (碎星王虫)</div>
+                        <div>
+                            <span class="weakness-tag">Ice</span>
+                            <span class="weakness-tag">Imaginary</span>
+                            <span class="weakness-tag">Physical</span>
+                        </div>
+                    </div>
+                    <div class="enemy-item">
+                        <div class="enemy-name">Sunday (神主日)</div>
+                        <div>
+                            <span class="weakness-tag">Imaginary</span>
+                            <span class="weakness-tag">Fire</span>
+                            <span class="weakness-tag">Lightning</span>
+                            <span class="weakness-tag">Quantum*</span>
+                        </div>
+                    </div>
+                    <div class="enemy-item">
+                        <div class="enemy-name">5 TV (五合一)</div>
+                        <div>
+                            <span class="weakness-tag">Ice</span>
+                            <span class="weakness-tag">Imaginary</span>
+                            <span class="weakness-tag">Fire</span>
+                            <span class="weakness-tag">Lightning</span>
+                        </div>
+                    </div>
+                    <div class="enemy-item">
+                        <div class="enemy-name">Argenti (银枝)</div>
+                        <div>
+                            <span class="weakness-tag">Ice</span>
+                            <span class="weakness-tag">Fire</span>
+                            <span class="weakness-tag">Physical</span>
+                            <span class="weakness-tag">Imaginary</span>
+                        </div>
+                    </div>
+                    <div class="enemy-item">
+                        <div class="enemy-name">IPC Leader (公司组长)</div>
+                        <div>
+                            <span class="weakness-tag">Ice</span>
+                            <span class="weakness-tag">Imaginary</span>
+                            <span class="weakness-tag">Fire</span>
+                        </div>
+                    </div>
+                    <div class="enemy-item">
+                        <div class="enemy-name">Abundant Ebon Deer (丰饶玄鹿)</div>
+                        <div>
+                            <span class="weakness-tag">Ice</span>
+                            <span class="weakness-tag">Imaginary</span>
+                            <span class="weakness-tag">Fire</span>
+                        </div>
+                    </div>
+                    <div class="enemy-item">
+                        <div class="enemy-name">Disciples of Sanctus Medicus: Shape Shifter (药王秘传炼形者)</div>
+                        <div>
+                            <span class="weakness-tag">Ice</span>
+                            <span class="weakness-tag">Imaginary</span>
+                            <span class="weakness-tag">Wind</span>
+                        </div>
+                    </div>
+                    <div class="enemy-item">
+                        <div class="enemy-name">Stormbringer (兴风者)</div>
+                        <div>
+                            <span class="weakness-tag">Ice</span>
+                            <span class="weakness-tag">Imaginary</span>
+                            <span class="weakness-tag">Fire</span>
+                        </div>
+                    </div>
+                    <div class="enemy-item">
+                        <div class="enemy-name">Silvermane Lieutenant (银鬃尉官)</div>
+                        <div>
+                            <span class="weakness-tag">Ice</span>
+                            <span class="weakness-tag">Quantum</span>
+                            <span class="weakness-tag">Physical</span>
+                        </div>
+                    </div>
+                    <div class="enemy-item">
+                        <div class="enemy-name">Outer Cosmic Flame (外宇宙之炎)</div>
+                        <div>
+                            <span class="weakness-tag">Ice</span>
+                            <span class="weakness-tag">Quantum</span>
+                            <span class="weakness-tag">Physical</span>
+                        </div>
+                    </div>
+                    <div class="enemy-item">
+                        <div class="enemy-name">Searing Prowler (炽燃徘徊者)</div>
+                        <div>
+                            <span class="weakness-tag">Ice</span>
+                            <span class="weakness-tag">Imaginary</span>
+                            <span class="weakness-tag">Lightning</span>
+                        </div>
+                    </div>
+                    <div class="enemy-item">
+                        <div class="enemy-name">Automaton Direwolf (机兵齿狼)</div>
+                        <div>
+                            <span class="weakness-tag">Ice</span>
+                            <span class="weakness-tag">Imaginary</span>
+                            <span class="weakness-tag">Lightning</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
         document.addEventListener("DOMContentLoaded", () => {
             const tags = document.querySelectorAll('.weakness-tag, .char-element');
     
