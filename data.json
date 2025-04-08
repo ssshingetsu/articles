@@ -9,7 +9,10 @@
         { "en": "Yunli", "zh": "云璃" },
         { "en": "Qingque", "zh": "青雀" },
         { "en": "Sunday", "zh": "星期日" },
-        { "en": "Acheron", "zh": "黄泉" }
+        { "en": "Acheron", "zh": "黄泉" },
+        { "en": "Cipher", "zh": "赛飞儿" },
+        { "en": "Hyacine", "zh": "风堇" },
+        { "en": "Tribbie", "zh": "緹寶" }
     ],
     "gameModes": [
         { "en": "Memory of Chaos", "zh": "混沌回忆" },
@@ -30,6 +33,7 @@
         { "en": "Pollux", "zh": "死龙" },
         { "en": "Nikador", "zh": "天谴之矛" },
         { "en": "5 TV", "zh": "五合一"},
+        { "en": "Hoolay", "zh": "呼雷"},
         { "en": "True Sting", "zh": "真蛰虫" }
     ]
 }
