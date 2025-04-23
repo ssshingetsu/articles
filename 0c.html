@@ -148,14 +148,14 @@
       modifiersDiv.innerHTML = data.modifiers
         .map(
           (mod) =>
-            `<label><input type="checkbox" value="${mod.zh}" onchange="generateKeywords()"> ${mod.en}</label>`
+            `<label><input type="checkbox" value="${mod.zh}" onchange="Keywords()"> ${mod.en}</label>`
         )
         .join("");
 
-      generateKeywords();
+      Keywords();
     }
 
-    function generateKeywords() {
+    function Keywords() {
       let eidolon = document.getElementById("eidolon").value;
       let category = document.getElementById("category").value;
       let gameMode = document.getElementById("gameMode").value;
