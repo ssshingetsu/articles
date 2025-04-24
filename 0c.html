@@ -77,6 +77,18 @@
       align-items: center;
       gap: 10px;
     }
+    .search-link {
+      margin-top: 10px;
+      text-align: center;
+    }
+    .search-link a {
+      color: #007bff;
+      text-decoration: none;
+      font-size: 14px;
+    }
+    .search-link a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
@@ -111,6 +123,9 @@
 
     <div class="output" id="output" onclick="copyToClipboard()">
       Click to copy
+    </div>
+    <div class="search-link" id="searchLink">
+      <a href="#" target="_blank" id="bilibiliLink">View on Bilibili</a>
     </div>
   </div>
 
@@ -148,14 +163,14 @@
       modifiersDiv.innerHTML = data.modifiers
         .map(
           (mod) =>
-            `<label><input type="checkbox" value="${mod.zh}" onchange="Keywords()"> ${mod.en}</label>`
+            `<label><input type="checkbox" value="${mod.zh}" onchange="generateKeywords()"> ${mod.en}</label>`
         )
         .join("");
 
-      Keywords();
+      generateKeywords();
     }
 
-    function Keywords() {
+    function generateKeywords() {
       let eidolon = document.getElementById("eidolon").value;
       let category = document.getElementById("category").value;
       let gameMode = document.getElementById("gameMode").value;
@@ -175,6 +190,15 @@
       if (modifiers) keyword += " " + modifiers;
 
       document.getElementById("output").innerText = keyword || "Click to copy";
+      
+      // Generate Bilibili search link
+      let bilibiliLink = document.getElementById("bilibiliLink");
+      if (keyword && keyword !== "Click to copy") {
+        bilibiliLink.href = `https://search.bilibili.com/all?keyword=${encodeURIComponent(keyword)}`;
+        bilibiliLink.style.display = "block";
+      } else {
+        bilibiliLink.style.display = "none";
+      }
     }
 
     function copyToClipboard() {
@@ -189,4 +213,3 @@
   </script>
 </body>
 </html>
-    
