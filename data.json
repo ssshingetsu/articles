@@ -6,13 +6,16 @@
         { "en": "Bootking", "zh": "波提欧" },
         { "en": "Castorice", "zh": "遐蝶" },
         { "en": "Firefly", "zh": "流萤" },
+        { "en": "Robin", "zh": "鸟" },
         { "en": "Yunli", "zh": "云璃" },
         { "en": "Qingque", "zh": "青雀" },
         { "en": "Sunday", "zh": "星期日" },
         { "en": "Acheron", "zh": "黄泉" },
         { "en": "Cipher", "zh": "赛飞儿" },
         { "en": "Hyacine", "zh": "风堇" },
-         { "en": "Anaxa", "zh": "那刻夏" },
+        { "en": "Anaxa", "zh": "那刻夏" },
+        { "en": "Bronya", "zh": "鸭" },
+        { "en": "Jingliu", "zh": "镜流" },
         { "en": "Tribbie", "zh": "緹寶" }
     ],
     "gameModes": [
