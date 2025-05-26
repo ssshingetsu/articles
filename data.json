@@ -33,6 +33,7 @@
     ],
     "bosses": [
         { "en": "Flame Reaver", "zh": "行者" },
+        { "en": "Cocolia", "zh": "可可利亚" },
         { "en": "Kafka", "zh": "卡芙卡" },
         { "en": "Pollux", "zh": "死龙" },
         { "en": "Nikador", "zh": "天谴之矛" },
