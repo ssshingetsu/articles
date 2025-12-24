@@ -446,160 +446,160 @@
 
 
         <!-- Future Characters -->
-        <div class="card">
-            <div class="card-header">
-                <h2 class="card-title">Future Characters</h2>
-            </div>
-            <div class="card-content">
-                <div class="grid grid-cols-3">
-                    <div class="char-card">
-                        <div class="char-name">Tribbie (缇宝)</div>
-                        <div class="char-element">Quantum (量子)</div>
-                    </div>
-                    <div class="char-card">
-                        <div class="char-name">Castorice (瑕蝶)</div>
-                        <div class="char-element">Quantum (量子)</div>
-                    </div>
-                    <div class="char-card">
-                        <div class="char-name">Anaxa (昔涟)</div>
-                        <div class="char-element">Imaginary (虚数)</div>
-                    </div>
-                    <div class="char-card">
-                        <div class="char-name">Mydei (万敌)</div>
-                        <div class="char-element">Imaginary (虚数)</div>
-                    </div>
-                    <div class="char-card">
-                        <div class="char-name">Phainon (白厄)</div>
-                        <div class="char-element">Imaginary (虚数)</div>
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">Future Characters</h2>
+                </div>
+                <div class="card-content">
+                    <div class="grid grid-cols-3">
+                        <div class="char-card">
+                            <div class="char-name">Tribbie (缇宝)</div>
+                            <div class="char-element">Quantum (量子)</div>
+                        </div>
+                        <div class="char-card">
+                            <div class="char-name">Castorice (瑕蝶)</div>
+                            <div class="char-element">Quantum (量子)</div>
+                        </div>
+                        <div class="char-card">
+                            <div class="char-name">Anaxa (昔涟)</div>
+                            <div class="char-element">Imaginary (虚数)</div>
+                        </div>
+                        <div class="char-card">
+                            <div class="char-name">Mydei (万敌)</div>
+                            <div class="char-element">Imaginary (虚数)</div>
+                        </div>
+                        <div class="char-card">
+                            <div class="char-name">Phainon (白厄)</div>
+                            <div class="char-element">Imaginary (虚数)</div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- Leaderboard -->
-        <div class="card">
-  <div class="card-header">
-    <h2 class="card-title">Showcases</h2>
-  </div>
-  <div class="card-content">
-    <table class="p-datatable-table">
-      <thead>
-        <tr>
-          <th>Notes</th>
-          <th>Team</th>
-          <th>Lightcones</th>
-          <th>Boss</th>
-          <th>Cost</th>
-          <th>Showcase</th>
-        </tr>
-      </thead>
-      <tbody id="showcase-body"></tbody>
-    </table>
-  </div>
-</div>
-
-    <script>
-  // 1. CONFIGURATION: Add your new rows here
-  const showcaseData = [
-    {
-      note: "3.0.51",
-      cost: "2 Cost",
-      link: "https://www.bilibili.com/video/BV1QmcheNE25/",
-      boss: { id: "4034010", name: "Flame Reaver" },
-      // Format: [ID, Name, Eidolon/Rank]
-      team: [
-        { id: "1401", name: "The Herta", rank: "E0" },
-        { id: "1403", name: "Tribbie", rank: "E0" },
-        { id: "1013", name: "Herta", rank: "E6" },
-        { id: "8008", name: "RMC", rank: "E6" }
-      ],
-      weapons: [
-        { id: "21034", name: "Peaceful Day", rank: "S5" },
-        { id: "21046", name: "Poised to Bloom", rank: "S5" },
-        { id: "21040", name: "Day Cosmos Fell", rank: "S5" },
-        { id: "21050", name: "Victory in A Blink", rank: "S5" }
-      ]
-    },
-    {
-      note: "MoC 3.0",
-      cost: "1 Cost",
-      link: "https://www.bilibili.com/video/BV1MEcgevEEy",
-      boss: { id: "4014020", name: "The Giver" },
-      team: [
-        { id: "1401", name: "The Herta", rank: "E0" },
-        { id: "1106", name: "Pela", rank: "E6" },
-        { id: "1103", name: "Serval", rank: "E6" },
-        { id: "8008", name: "RMC", rank: "E6" }
-      ],
-      weapons: [
-        { id: "21034", name: "Peaceful Day", rank: "S5" },
-        { id: "21015", name: "Pearls of Sweat", rank: "S5" },
-        { id: "21013", name: "Make World Clamor", rank: "S5" },
-        { id: "21050", name: "Victory in A Blink", rank: "S5" }
-      ]
-    },
-    {
-      note: "MoC 2.7",
-      cost: "1 Cost",
-      link: "https://www.bilibili.com/video/BV1qxcieREfa",
-      boss: { id: "8024010", name: "True Sting" },
-      team: [
-        { id: "1401", name: "The Herta", rank: "E0" },
-        { id: "1106", name: "Pela", rank: "E6" },
-        { id: "1013", name: "Herta", rank: "E6" },
-        { id: "8008", name: "RMC", rank: "E6" }
-      ],
-      weapons: [
-        { id: "21034", name: "Peaceful Day", rank: "S5" },
-        { id: "21015", name: "Pearls of Sweat", rank: "S5" },
-        { id: "21020", name: "Genius Repose", rank: "S5" },
-        { id: "21050", name: "Victory in A Blink", rank: "S5" }
-      ]
-    }
-  ];
-
-  // 2. HELPER: Generates HTML for items
-  const renderItems = (items, type) => {
-    const path = type === 'char' ? 'avataricon/avatar' : 'lightconemediumicon';
-    return items.map(item => `
-      <div class="${type === 'char' ? 'character' : 'weapon'}">
-        <img alt="${item.name}" title="${item.name}" 
-             src="https://homdgcat.wiki/images/${path}/${item.id}.png">
-        <span>${item.rank}</span>
-      </div>
-    `).join('');
-  };
-
-  // 3. RENDER: Inject into HTML
-  const tbody = document.getElementById('showcase-body');
-  
-  tbody.innerHTML = showcaseData.map(row => `
-    <tr>
-      <td><span class="player-name">${row.note}</span></td>
-      <td>
-        <div class="character-container">
-          ${renderItems(row.team, 'char')}
-        </div>
-      </td>
-      <td>
-        <div class="weapon-container">
-          ${renderItems(row.weapons, 'weapon')}
-        </div>
-      </td>
-      <td>
-        <div class="boss">
-          <img alt="${row.boss.name}" title="${row.boss.name}" 
-               src="https://homdgcat.wiki/images/monsterfigure/Monster_${row.boss.id}.png">
-        </div>
-      </td>
-      <td><div class="time">${row.cost}</div></td>
-      <td>
-        <a href="${row.link}" target="_blank" class="platform-link">
-          <i class="fa-brands fa-bilibili"></i>
-        </a>
-      </td>
-    </tr>
-  `).join('');
-</script>
+            <!-- Leaderboard -->
+            <div class="card">
+              <div class="card-header">
+                <h2 class="card-title">Showcases</h2>
+              </div>
+              <div class="card-content">
+                <table class="p-datatable-table">
+                  <thead>
+                    <tr>
+                      <th>Notes</th>
+                      <th>Team</th>
+                      <th>Lightcones</th>
+                      <th>Boss</th>
+                      <th>Cost</th>
+                      <th>Showcase</th>
+                    </tr>
+                  </thead>
+                  <tbody id="showcase-body"></tbody>
+                </table>
+              </div>
+            </div>
+    
+                <script>
+              // 1. CONFIGURATION: Add your new rows here
+              const showcaseData = [
+                {
+                  note: "3.0.51",
+                  cost: "2 Cost",
+                  link: "https://www.bilibili.com/video/BV1QmcheNE25/",
+                  boss: { id: "4034010", name: "Flame Reaver" },
+                  // Format: [ID, Name, Eidolon/Rank]
+                  team: [
+                    { id: "1401", name: "The Herta", rank: "E0" },
+                    { id: "1403", name: "Tribbie", rank: "E0" },
+                    { id: "1013", name: "Herta", rank: "E6" },
+                    { id: "8008", name: "RMC", rank: "E6" }
+                  ],
+                  weapons: [
+                    { id: "21034", name: "Peaceful Day", rank: "S5" },
+                    { id: "21046", name: "Poised to Bloom", rank: "S5" },
+                    { id: "21040", name: "Day Cosmos Fell", rank: "S5" },
+                    { id: "21050", name: "Victory in A Blink", rank: "S5" }
+                  ]
+                },
+                {
+                  note: "MoC 3.0",
+                  cost: "1 Cost",
+                  link: "https://www.bilibili.com/video/BV1MEcgevEEy",
+                  boss: { id: "4014020", name: "The Giver" },
+                  team: [
+                    { id: "1401", name: "The Herta", rank: "E0" },
+                    { id: "1106", name: "Pela", rank: "E6" },
+                    { id: "1103", name: "Serval", rank: "E6" },
+                    { id: "8008", name: "RMC", rank: "E6" }
+                  ],
+                  weapons: [
+                    { id: "21034", name: "Peaceful Day", rank: "S5" },
+                    { id: "21015", name: "Pearls of Sweat", rank: "S5" },
+                    { id: "21013", name: "Make World Clamor", rank: "S5" },
+                    { id: "21050", name: "Victory in A Blink", rank: "S5" }
+                  ]
+                },
+                {
+                  note: "MoC 2.7",
+                  cost: "1 Cost",
+                  link: "https://www.bilibili.com/video/BV1qxcieREfa",
+                  boss: { id: "8024010", name: "True Sting" },
+                  team: [
+                    { id: "1401", name: "The Herta", rank: "E0" },
+                    { id: "1106", name: "Pela", rank: "E6" },
+                    { id: "1013", name: "Herta", rank: "E6" },
+                    { id: "8008", name: "RMC", rank: "E6" }
+                  ],
+                  weapons: [
+                    { id: "21034", name: "Peaceful Day", rank: "S5" },
+                    { id: "21015", name: "Pearls of Sweat", rank: "S5" },
+                    { id: "21020", name: "Genius Repose", rank: "S5" },
+                    { id: "21050", name: "Victory in A Blink", rank: "S5" }
+                  ]
+                }
+              ];
+            
+              // 2. HELPER: Generates HTML for items
+              const renderItems = (items, type) => {
+                const path = type === 'char' ? 'avataricon/avatar' : 'lightconemediumicon';
+                return items.map(item => `
+                  <div class="${type === 'char' ? 'character' : 'weapon'}">
+                    <img alt="${item.name}" title="${item.name}" 
+                         src="https://homdgcat.wiki/images/${path}/${item.id}.png">
+                    <span>${item.rank}</span>
+                  </div>
+                `).join('');
+              };
+            
+              // 3. RENDER: Inject into HTML
+              const tbody = document.getElementById('showcase-body');
+              
+              tbody.innerHTML = showcaseData.map(row => `
+                <tr>
+                  <td><span class="player-name">${row.note}</span></td>
+                  <td>
+                    <div class="character-container">
+                      ${renderItems(row.team, 'char')}
+                    </div>
+                  </td>
+                  <td>
+                    <div class="weapon-container">
+                      ${renderItems(row.weapons, 'weapon')}
+                    </div>
+                  </td>
+                  <td>
+                    <div class="boss">
+                      <img alt="${row.boss.name}" title="${row.boss.name}" 
+                           src="https://homdgcat.wiki/images/monsterfigure/Monster_${row.boss.id}.png">
+                    </div>
+                  </td>
+                  <td><div class="time">${row.cost}</div></td>
+                  <td>
+                    <a href="${row.link}" target="_blank" class="platform-link">
+                      <i class="fa-brands fa-bilibili"></i>
+                    </a>
+                  </td>
+                </tr>
+              `).join('');
+            </script>
           
           <style>
           .p-datatable-table {
